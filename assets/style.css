@@ -567,7 +567,7 @@ nav {
   min-height: calc(100vh - 116px);
 }
 .docs-layout { max-width: var(--max); margin: 0 auto; padding: 80px var(--pad); display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; }
-.docs-sidebar { position: sticky; top: 130px; }
+.docs-sidebar { position: sticky; top: 130px; align-self: start; opacity: 1 !important; transform: none !important; }
 .docs-sidebar-title { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; font-family: var(--sans); font-weight: 300; }
 .docs-nav { display: flex; flex-direction: column; gap: 2px; }
 .docs-nav a { color: var(--muted2); text-decoration: none; font-size: 13px; padding: 7px 12px; border-radius: 6px; transition: color .2s, background .2s; font-weight: 300; }
