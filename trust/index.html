@@ -1,1 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Trust Centre — Agilva Solutions</title>
+<meta name="description" content="Agilva Solutions Trust Centre. Security, privacy, and compliance information for all Atlassian Marketplace apps."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/style.css"/>
+<style>
+/* ── Trust Hub page styles ── */
+.trust-hub-hero {
+  padding: 110px var(--pad) 72px;
+  max-width: var(--max);
+  margin: 0 auto;
+  text-align: center;
+}
+.trust-hub-hero .sec-tag {
+  justify-content: center;
+}
+.trust-hub-hero .sec-tag::before { display: none; }
+.trust-hub-title {
+  font-family: var(--serif);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  margin: 16px 0 22px;
+}
+.trust-hub-title em { font-style: italic; color: var(--accent); }
+.trust-hub-sub {
+  font-size: 15px;
+  color: var(--muted2);
+  line-height: 1.9;
+  font-weight: 300;
+  max-width: 560px;
+  margin: 0 auto 20px;
+}
+.trust-hub-meta {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.trust-hub-meta span { color: var(--accent); }
 
+/* Platform-wide trust cards */
+.trust-platform {
+  background: var(--bg2);
+  border-top: 0.5px solid var(--line);
+  padding: 72px var(--pad);
+}
+.trust-platform-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.trust-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+.trust-pillar {
+  background: var(--bg3);
+  border: 0.5px solid rgba(184,152,96,.18);
+  border-radius: 12px;
+  padding: 28px 24px;
+  transition: border-color .25s, transform .25s;
+}
+.trust-pillar:hover { border-color: rgba(184,152,96,.45); transform: translateY(-3px); }
+.trust-pillar-icon { font-size: 1.6rem; margin-bottom: 14px; }
+.trust-pillar h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.trust-pillar p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* Products section */
+.trust-products {
+  padding: 80px var(--pad) 100px;
+  background: var(--bg);
+  border-top: 0.5px solid var(--line);
+}
+.trust-products-inner { max-width: var(--max); margin: 0 auto; }
+
+.trust-prod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.trust-prod-card {
+  background: var(--bg2);
+  border: 0.5px solid rgba(184,152,96,.22);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: background .3s, border-color .3s, transform .25s, box-shadow .3s;
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+}
+.trust-prod-card::before {
+  content: '';
+  position: absolute; inset: 0; border-radius: 16px;
+  background: radial-gradient(circle at 10% 10%, rgba(184,152,96,.06), transparent 55%);
+  opacity: 0; transition: opacity .4s;
+}
+.trust-prod-card:hover {
+  background: var(--bg3);
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(184,152,96,.1);
+}
+.trust-prod-card:hover::before { opacity: 1; }
+.trust-prod-card:hover .trust-prod-arrow { opacity: 1; transform: translate(0,0); }
+
+.trust-prod-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.trust-prod-left { display: flex; align-items: center; gap: 14px; }
+.trust-prod-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: rgba(184,152,96,.1);
+  border: 0.5px solid rgba(184,152,96,.2);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.trust-prod-icon svg { width: 20px; height: 20px; color: var(--accent); }
+.trust-prod-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--text);
+}
+.trust-prod-platform {
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-family: var(--sans);
+  font-weight: 300;
+  margin-top: 3px;
+}
+.trust-prod-arrow {
+  font-size: 18px;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-5px, 5px);
+  transition: opacity .2s, transform .2s;
+  flex-shrink: 0;
+}
+
+.trust-prod-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.trust-badge.green {
+  background: rgba(74,197,130,.1);
+  color: #4ac582;
+  border: 0.5px solid rgba(74,197,130,.25);
+}
+.trust-badge.green::before { content: '✓ '; }
+.trust-badge.gold {
+  background: rgba(184,152,96,.1);
+  color: var(--accent);
+  border: 0.5px solid rgba(184,152,96,.25);
+}
+
+.trust-prod-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-top: 18px;
+  border-top: 0.5px solid var(--line);
+  margin-top: auto;
+}
+.trust-prod-link {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted2);
+  text-decoration: none;
+  padding: 5px 12px;
+  border: 0.5px solid var(--line2);
+  border-radius: 5px;
+  transition: color .2s, border-color .2s;
+}
+.trust-prod-link:hover { color: var(--accent); border-color: rgba(184,152,96,.4); }
+.trust-prod-link.primary {
+  background: rgba(184,152,96,.08);
+  border-color: rgba(184,152,96,.3);
+  color: var(--accent);
+}
+.trust-prod-link.primary:hover { background: rgba(184,152,96,.15); }
+
+/* Forge banner */
+.trust-forge-banner {
+  background: var(--bg3);
+  border: 0.5px solid rgba(184,152,96,.2);
+  border-radius: 14px;
+  padding: 32px 36px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 48px;
+}
+.trust-forge-icon { font-size: 2rem; flex-shrink: 0; }
+.trust-forge-banner h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 6px;
+}
+.trust-forge-banner p {
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.8;
+  font-weight: 300;
+  margin: 0;
+}
+.trust-forge-banner a { color: var(--accent); text-decoration: none; }
+.trust-forge-banner a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .trust-platform-grid { grid-template-columns: 1fr 1fr; }
+  .trust-prod-grid { grid-template-columns: 1fr; }
+  .trust-forge-banner { flex-direction: column; text-align: center; }
+}
+@media (max-width: 600px) {
+  .trust-platform-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo"><img src="../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
+    </li>
+    <li><a href="../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="trust-hub-hero reveal">
+  <div class="sec-tag">Agilva Solutions</div>
+  <h1 class="trust-hub-title">Trust<br><em>Centre</em></h1>
+  <p class="trust-hub-sub">Security, privacy, and compliance information for every Agilva app on the Atlassian Marketplace. All apps run on Atlassian Forge — no external servers, no data egress.</p>
+  <p class="trust-hub-meta">Security &middot; Privacy &middot; Compliance &middot; <span>Last updated: June 2026</span></p>
+</div>
+
+<!-- PLATFORM-WIDE TRUST PILLARS -->
+<section class="trust-platform">
+  <div class="trust-platform-inner">
+    <div class="sec-tag reveal">Platform Commitments</div>
+    <h2 class="sec-title reveal reveal-d1">What every Agilva<br><em>app guarantees</em></h2>
+    <div class="trust-platform-grid">
+      <div class="trust-pillar reveal reveal-d1">
+        <div class="trust-pillar-icon">🏗️</div>
+        <h3>Forge-Only Infrastructure</h3>
+        <p>Every Agilva app runs exclusively on Atlassian Forge. There are no Agilva-controlled servers, no external APIs, and no data egress of any kind. All compute happens inside Atlassian's platform.</p>
+      </div>
+      <div class="trust-pillar reveal reveal-d2">
+        <div class="trust-pillar-icon">🔐</div>
+        <h3>Minimal Permissions</h3>
+        <p>Each app requests only the OAuth scopes strictly necessary for its function. We never request broad read/write permissions when a narrower scope suffices. Scopes are documented per product.</p>
+      </div>
+      <div class="trust-pillar reveal reveal-d3">
+        <div class="trust-pillar-icon">🚫</div>
+        <h3>No User Tracking</h3>
+        <p>Agilva apps do not collect analytics, build user profiles, or track behaviour across sessions or tenants. We do not use third-party analytics SDKs inside any app.</p>
+      </div>
+      <div class="trust-pillar reveal reveal-d1">
+        <div class="trust-pillar-icon">🔒</div>
+        <h3>Encrypted at Rest &amp; in Transit</h3>
+        <p>All data stored via Forge Storage is encrypted at rest (AES-256) and in transit (TLS 1.2+) by Atlassian's platform. Agilva does not manage encryption keys — Atlassian does.</p>
+      </div>
+      <div class="trust-pillar reveal reveal-d2">
+        <div class="trust-pillar-icon">🌍</div>
+        <h3>Data Residency</h3>
+        <p>Forge apps automatically respect Atlassian's data residency controls. Any data stored by Agilva apps via Forge Storage resides within the same region as your Atlassian site.</p>
+      </div>
+      <div class="trust-pillar reveal reveal-d3">
+        <div class="trust-pillar-icon">📋</div>
+        <h3>Atlassian Partner Compliance</h3>
+        <p>Agilva is a certified Atlassian Marketplace partner and meets all requirements of the Marketplace Partner Agreement, including security, privacy policy publication, and vulnerability disclosure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PER-PRODUCT TRUST CARDS -->
+<section class="trust-products">
+  <div class="trust-products-inner">
+    <div class="sec-tag reveal">By Product</div>
+    <h2 class="sec-title reveal reveal-d1">Trust &amp; security<br><em>per app</em></h2>
+
+    <div class="trust-prod-grid">
+
+      <!-- QR Hub for Jira -->
+      <div class="trust-prod-card reveal reveal-d1">
+        <div class="trust-prod-header">
+          <div class="trust-prod-left">
+            <div class="trust-prod-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg>
+            </div>
+            <div>
+              <div class="trust-prod-name">QR Hub for Jira</div>
+              <div class="trust-prod-platform">Jira Cloud · Atlassian Forge</div>
+            </div>
+          </div>
+          <div class="trust-prod-arrow">↗</div>
+        </div>
+        <div class="trust-prod-badges">
+          <span class="trust-badge green">No external servers</span>
+          <span class="trust-badge green">Minimal data storage</span>
+          <span class="trust-badge gold">Forge Storage only</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:0;">Stores only the dashboard gadget URL via <code style="font-size:11px;background:var(--bg3);border:0.5px solid rgba(184,152,96,.2);border-radius:4px;padding:1px 6px;color:var(--accent2)">storage:app</code> inside Forge. No issue content, user data, or QR images are persisted anywhere.</p>
+        <div class="trust-prod-links">
+          <a href="../qr-hub-jira/trust.html" class="trust-prod-link primary">Trust Centre</a>
+          <a href="../qr-hub-jira/security.html" class="trust-prod-link">Security Policy</a>
+          <a href="../qr-hub-jira/privacy.html" class="trust-prod-link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- QR Hub for Confluence -->
+      <div class="trust-prod-card reveal reveal-d2">
+        <div class="trust-prod-header">
+          <div class="trust-prod-left">
+            <div class="trust-prod-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <div>
+              <div class="trust-prod-name">QR Hub for Confluence</div>
+              <div class="trust-prod-platform">Confluence Cloud · Atlassian Forge</div>
+            </div>
+          </div>
+          <div class="trust-prod-arrow">↗</div>
+        </div>
+        <div class="trust-prod-badges">
+          <span class="trust-badge green">No external servers</span>
+          <span class="trust-badge green">Zero data stored</span>
+          <span class="trust-badge gold">Read-only scopes</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:0;">QR codes are generated entirely in-browser from page URLs. No page content, metadata, or user information is persisted by the app.</p>
+        <div class="trust-prod-links">
+          <a href="../qr-hub-confluence/trust.html" class="trust-prod-link primary">Trust Centre</a>
+          <a href="../qr-hub-confluence/security.html" class="trust-prod-link">Security Policy</a>
+          <a href="../qr-hub-confluence/privacy.html" class="trust-prod-link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Markso Editor -->
+      <div class="trust-prod-card reveal reveal-d1">
+        <div class="trust-prod-header">
+          <div class="trust-prod-left">
+            <div class="trust-prod-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </div>
+            <div>
+              <div class="trust-prod-name">Markso Editor</div>
+              <div class="trust-prod-platform">Jira Cloud · Atlassian Forge</div>
+            </div>
+          </div>
+          <div class="trust-prod-arrow">↗</div>
+        </div>
+        <div class="trust-prod-badges">
+          <span class="trust-badge green">No external servers</span>
+          <span class="trust-badge green">Content stays in Jira</span>
+          <span class="trust-badge gold">Forge renderer</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:0;">Markdown rendering happens entirely within the Forge sandbox. No issue content is transmitted outside Atlassian's infrastructure at any point.</p>
+        <div class="trust-prod-links">
+          <a href="../markso-editor/trust.html" class="trust-prod-link primary">Trust Centre</a>
+          <a href="../markso-editor/security.html" class="trust-prod-link">Security Policy</a>
+          <a href="../markso-editor/privacy.html" class="trust-prod-link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Link-a-Link -->
+      <div class="trust-prod-card reveal reveal-d2">
+        <div class="trust-prod-header">
+          <div class="trust-prod-left">
+            <div class="trust-prod-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </div>
+            <div>
+              <div class="trust-prod-name">Link-a-Link</div>
+              <div class="trust-prod-platform">Jira Cloud · Atlassian Forge</div>
+            </div>
+          </div>
+          <div class="trust-prod-arrow">↗</div>
+        </div>
+        <div class="trust-prod-badges">
+          <span class="trust-badge green">No external servers</span>
+          <span class="trust-badge green">Link data in Jira only</span>
+          <span class="trust-badge gold">Forge Storage</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:0;">Issue link data is stored exclusively within Atlassian's Forge infrastructure. No link metadata, URLs, or user information is transmitted externally.</p>
+        <div class="trust-prod-links">
+          <a href="../link-a-link/trust.html" class="trust-prod-link primary">Trust Centre</a>
+          <a href="../link-a-link/security.html" class="trust-prod-link">Security Policy</a>
+          <a href="../link-a-link/privacy.html" class="trust-prod-link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Discovery Hub for Jira -->
+      <div class="trust-prod-card reveal reveal-d1">
+        <div class="trust-prod-header">
+          <div class="trust-prod-left">
+            <div class="trust-prod-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <div>
+              <div class="trust-prod-name">Discovery Hub for Jira</div>
+              <div class="trust-prod-platform">Jira Cloud · Atlassian Forge</div>
+            </div>
+          </div>
+          <div class="trust-prod-arrow">↗</div>
+        </div>
+        <div class="trust-prod-badges">
+          <span class="trust-badge green">No external servers</span>
+          <span class="trust-badge green">Read-only access</span>
+          <span class="trust-badge gold">In-platform search</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:0;">All issue discovery and search operations run within Atlassian's Forge platform. No query data, results, or user search history is persisted or transmitted externally.</p>
+        <div class="trust-prod-links">
+          <a href="../discovery-hub-jira/trust.html" class="trust-prod-link primary">Trust Centre</a>
+          <a href="../discovery-hub-jira/security.html" class="trust-prod-link">Security Policy</a>
+          <a href="../discovery-hub-jira/privacy.html" class="trust-prod-link">Privacy Policy</a>
+        </div>
+      </div>
+
+      <!-- Mathso -->
+      <div class="trust-prod-card reveal reveal-d2">
+        <div class="trust-prod-header">
+          <div class="trust-prod-left">
+            <div class="trust-prod-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <div class="trust-prod-name">Mathso</div>
+              <div class="trust-prod-platform">Jira Cloud · Atlassian Forge</div>
+            </div>
+          </div>
+          <div class="trust-prod-arrow">↗</div>
+        </div>
+        <div class="trust-prod-badges">
+          <span class="trust-badge green">No external servers</span>
+          <span class="trust-badge green">Zero data stored</span>
+          <span class="trust-badge gold">Client-side compute</span>
+        </div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;margin-bottom:0;">All mathematical computations are performed client-side within the Forge sandbox. No formula inputs, results, or field values are persisted or transmitted outside Atlassian.</p>
+        <div class="trust-prod-links">
+          <a href="../mathso/trust.html" class="trust-prod-link primary">Trust Centre</a>
+          <a href="../mathso/security.html" class="trust-prod-link">Security Policy</a>
+          <a href="../mathso/privacy.html" class="trust-prod-link">Privacy Policy</a>
+        </div>
+      </div>
+
+    </div><!-- /trust-prod-grid -->
+
+    <!-- Forge banner -->
+    <div class="trust-forge-banner reveal">
+      <div class="trust-forge-icon">🛡️</div>
+      <div>
+        <h3>Powered by Atlassian Forge</h3>
+        <p>All Agilva apps inherit Atlassian's enterprise security certifications by running on Forge — including SOC 2 Type II, ISO 27001, and GDPR compliance. Atlassian's full security programme is documented at <a href="https://www.atlassian.com/trust/security" target="_blank" rel="noopener">atlassian.com/trust/security</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../assets/logo.png" alt="Agilva Solutions"/>
+      <p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Products</div>
+      <ul>
+        <li><a href="../markso-editor/index.html">Markso Editor</a></li>
+        <li><a href="../link-a-link/index.html">Link-a-Link</a></li>
+        <li><a href="../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+        <li><a href="../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+        <li><a href="../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+        <li><a href="../mathso/index.html">Mathso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="../index.html#about">About Us</a></li>
+        <li><a href="../index.html#blog">Blog</a></li>
+        <li><a href="index.html">Trust Centre</a></li>
+        <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <ul>
+        <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
+      <a href="YOUR_TWITTER_URL">Twitter</a>
+      <a href="https://marketplace.atlassian.com">Marketplace</a>
+    </div>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row">
+        <label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — Agilva Solutions"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
