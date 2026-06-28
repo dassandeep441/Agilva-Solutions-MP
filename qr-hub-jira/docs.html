@@ -8,16 +8,151 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/style.css"/>
+<style>
+  /* ── Docs layout fix — self-contained so it works regardless of style.css state ── */
+
+  /* Ensure nav dropdown sits above everything */
+  #nav { position: sticky; top: 0; z-index: 1000; }
+  .prod-subnav { position: sticky; top: 60px; z-index: 900; }
+  .dropdown { z-index: 1100 !important; }
+
+  /* Page wrapper: sits below nav stack */
+  .docs-page-wrap {
+    position: relative;
+    z-index: 1;
+    background: var(--bg, #080808);
+    min-height: calc(100vh - 116px);
+  }
+
+  /* Two-column grid: sidebar + content */
+  .docs-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+    max-width: var(--max, 1200px);
+    margin: 0 auto;
+    padding: 56px var(--pad, 56px) 96px;
+    align-items: start;
+  }
+
+  /* Sidebar */
+  .docs-sidebar {
+    position: sticky;
+    top: 130px; /* clears nav + subnav */
+    z-index: 2;
+  }
+  .docs-sidebar-title {
+    font-family: var(--sans, 'DM Sans', sans-serif);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent, #b89860);
+    margin-bottom: 16px;
+  }
+  .docs-nav a {
+    display: block;
+    font-family: var(--sans, 'DM Sans', sans-serif);
+    font-size: 0.82rem;
+    color: rgba(240,236,228,0.68);
+    text-decoration: none;
+    padding: 6px 0 6px 12px;
+    border-left: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    line-height: 1.4;
+  }
+  .docs-nav a:hover,
+  .docs-nav a.active {
+    color: var(--accent, #b89860);
+    border-left-color: var(--accent, #b89860);
+  }
+  .docs-nav-divider {
+    height: 1px;
+    background: rgba(240,236,228,0.08);
+    margin: 10px 0 10px 12px;
+  }
+
+  /* Content column */
+  .docs-content h1 {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text, #f0ece4);
+    margin: 0 0 40px;
+  }
+  .docs-content h1 em { color: var(--accent, #b89860); font-style: italic; }
+  .docs-content h2 {
+    font-family: var(--serif, 'Cormorant Garamond', serif);
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 300;
+    color: var(--text, #f0ece4);
+    margin: 48px 0 14px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(184,152,96,0.18);
+  }
+  .docs-content h2:first-of-type { border-top: none; margin-top: 0; }
+  .docs-content h3 {
+    font-family: var(--sans, 'DM Sans', sans-serif);
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--accent2, #d4b87a);
+    letter-spacing: 0.04em;
+    margin: 24px 0 8px;
+  }
+  .docs-content p,
+  .docs-content li {
+    font-family: var(--sans, 'DM Sans', sans-serif);
+    font-size: 0.93rem;
+    line-height: 1.8;
+    color: rgba(240,236,228,0.68);
+  }
+  .docs-content p { margin: 0 0 14px; }
+  .docs-content ul,
+  .docs-content ol { padding-left: 20px; margin: 0 0 14px; }
+  .docs-content li { margin-bottom: 6px; }
+  .docs-content strong { color: var(--text, #f0ece4); font-weight: 400; }
+  .docs-content a { color: var(--accent, #b89860); text-decoration: none; }
+  .docs-content a:hover { text-decoration: underline; }
+  .docs-content code {
+    font-size: 0.8rem;
+    background: #141414;
+    border: 1px solid rgba(184,152,96,0.2);
+    border-radius: 4px;
+    padding: 2px 7px;
+    color: var(--accent2, #d4b87a);
+  }
+  .docs-callout {
+    background: #141414;
+    border-left: 3px solid var(--accent, #b89860);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 20px 0;
+  }
+  .docs-callout p { margin: 0; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .docs-layout {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 32px 24px 64px;
+    }
+    .docs-sidebar { position: static; }
+  }
+</style>
 </head>
 <body>
 <div id="cursor"></div>
-<div id="cursor-ring"></div><nav id="nav">
+<div id="cursor-ring"></div>
+
+<nav id="nav">
   <a href="../index.html" class="nav-logo"><img src="../assets/logo.png" alt="Agilva Solutions"/></a>
   <ul class="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../index.html#about">About</a></li>
     <li class="has-drop"><a href="#">Products</a>
-      <div class="dropdown"><a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+      <div class="dropdown">
+        <a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
         <div class="dd-divider"></div>
         <a href="../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
         <div class="dd-divider"></div>
@@ -27,12 +162,15 @@
         <div class="dd-divider"></div>
         <a href="../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
         <div class="dd-divider"></div>
-        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a></div>
+        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
     </li>
     <li><a href="../index.html#blog">Blog</a></li>
     <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
   </ul>
-</nav><div class="prod-subnav">
+</nav>
+
+<div class="prod-subnav">
   <div class="prod-subnav-inner">
     <a href="index.html" class="prod-subnav-brand">
       <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg></div>
@@ -49,146 +187,147 @@
 </div>
 
 <div class="docs-page-wrap">
-<div class="docs-layout">
+  <div class="docs-layout">
 
-  <!-- SIDEBAR -->
-  <aside class="docs-sidebar reveal">
-    <div class="docs-sidebar-title">Documentation</div>
-    <nav class="docs-nav">
-      <a href="#getting-started" class="active">Getting Started</a>
-      <a href="#installation">Installation</a>
-      <div class="docs-nav-divider"></div>
-      <a href="#issue-qr">Issue QR Panel</a>
-      <a href="#board-qr">Board &amp; Backlog QR</a>
-      <a href="#global-qr">Global QR Generator</a>
-      <a href="#dashboard-gadget">Dashboard Gadget</a>
-      <div class="docs-nav-divider"></div>
-      <a href="#download">Download Formats</a>
-      <a href="#print">Print as PDF</a>
-      <a href="#styles">QR Styles</a>
-      <div class="docs-nav-divider"></div>
-      <a href="#faq">FAQ</a>
-      <a href="#support">Support</a>
-    </nav>
-  </aside>
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar reveal">
+      <div class="docs-sidebar-title">Documentation</div>
+      <nav class="docs-nav">
+        <a href="#getting-started" class="active">Getting Started</a>
+        <a href="#installation">Installation</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#issue-qr">Issue QR Panel</a>
+        <a href="#board-qr">Board &amp; Backlog QR</a>
+        <a href="#global-qr">Global QR Generator</a>
+        <a href="#dashboard-gadget">Dashboard Gadget</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#download">Download Formats</a>
+        <a href="#print">Print as PDF</a>
+        <a href="#styles">QR Styles</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#faq">FAQ</a>
+        <a href="#support">Support</a>
+      </nav>
+    </aside>
 
-  <!-- CONTENT -->
-  <div class="docs-content reveal reveal-d1">
+    <!-- CONTENT -->
+    <div class="docs-content reveal reveal-d1">
 
-    <h1>QR Hub for Jira<br><em>Documentation</em></h1>
+      <h1>QR Hub for Jira<br><em>Documentation</em></h1>
 
-    <h2 id="getting-started">Getting started</h2>
-    <p>QR Hub for Jira lets you generate scannable QR codes for any Jira issue, board, backlog, or URL &mdash; right inside Jira. This guide covers every feature, from installation to advanced print layouts.</p>
-    <div class="docs-callout">
-      <p>&#128204; QR Hub for Jira is currently in development and not yet published on the Atlassian Marketplace. Documentation reflects the final feature set ahead of launch.</p>
-    </div>
+      <h2 id="getting-started">Getting started</h2>
+      <p>QR Hub for Jira lets you generate scannable QR codes for any Jira issue, board, backlog, or URL &mdash; right inside Jira. This guide covers every feature, from installation to advanced print layouts.</p>
+      <div class="docs-callout">
+        <p>&#128204; QR Hub for Jira is currently in development and not yet published on the Atlassian Marketplace. Documentation reflects the final feature set ahead of launch.</p>
+      </div>
 
-    <h2 id="installation">Installation</h2>
-    <ol>
-      <li>Go to the <strong>Atlassian Marketplace</strong> and search for <strong>QR Hub for Jira</strong>.</li>
-      <li>Click <strong>Get it now</strong> and select your Jira Cloud site.</li>
-      <li>Review and accept the requested permissions.</li>
-      <li>QR Hub appears automatically in issue sidebars, board menus, and under <strong>Apps</strong> in the left nav.</li>
-    </ol>
-    <p>Installation takes under two minutes and requires no server configuration. The app runs entirely on Atlassian Forge.</p>
+      <h2 id="installation">Installation</h2>
+      <ol>
+        <li>Go to the <strong>Atlassian Marketplace</strong> and search for <strong>QR Hub for Jira</strong>.</li>
+        <li>Click <strong>Get it now</strong> and select your Jira Cloud site.</li>
+        <li>Review and accept the requested permissions.</li>
+        <li>QR Hub appears automatically in issue sidebars, board menus, and under <strong>Apps</strong> in the left nav.</li>
+      </ol>
+      <p>Installation takes under two minutes and requires no server configuration. The app runs entirely on Atlassian Forge.</p>
 
-    <h2 id="issue-qr">Issue QR Panel</h2>
-    <p>The Issue QR Panel is the most direct way to get a QR code for any Jira issue.</p>
-    <h3>How to use</h3>
-    <ol>
-      <li>Open any Jira issue.</li>
-      <li>Scroll to <strong>QR Hub for Jira</strong> in the right sidebar panel.</li>
-      <li>The QR code for that issue is generated automatically.</li>
-      <li>Use the action buttons to <strong>Download</strong>, <strong>Print</strong>, or <strong>Copy</strong> the QR code.</li>
-    </ol>
-    <p>The panel also displays the issue&rsquo;s key, summary, type, status, project, and assignee alongside the QR code for quick reference.</p>
+      <h2 id="issue-qr">Issue QR Panel</h2>
+      <p>The Issue QR Panel is the most direct way to get a QR code for any Jira issue.</p>
+      <h3>How to use</h3>
+      <ol>
+        <li>Open any Jira issue.</li>
+        <li>Scroll to <strong>QR Hub for Jira</strong> in the right sidebar panel.</li>
+        <li>The QR code for that issue is generated automatically.</li>
+        <li>Use the action buttons to <strong>Download</strong>, <strong>Print</strong>, or <strong>Copy</strong> the QR code.</li>
+      </ol>
+      <p>The panel also displays the issue&rsquo;s key, summary, type, status, project, and assignee alongside the QR code for quick reference.</p>
 
-    <h2 id="board-qr">Board &amp; Backlog QR</h2>
-    <p>Generate QR codes for your Scrum or Kanban boards and backlogs without leaving the board view.</p>
-    <h3>How to use</h3>
-    <ol>
-      <li>Open any <strong>board</strong> or <strong>backlog</strong> in Jira Software.</li>
-      <li>Click the <strong>&hellip;</strong> (more actions) menu in the top right of the board.</li>
-      <li>Select <strong>QR Code</strong>.</li>
-      <li>A QR code for the current board or backlog URL is generated in a modal. Download or copy as needed.</li>
-    </ol>
+      <h2 id="board-qr">Board &amp; Backlog QR</h2>
+      <p>Generate QR codes for your Scrum or Kanban boards and backlogs without leaving the board view.</p>
+      <h3>How to use</h3>
+      <ol>
+        <li>Open any <strong>board</strong> or <strong>backlog</strong> in Jira Software.</li>
+        <li>Click the <strong>&hellip;</strong> (more actions) menu in the top right of the board.</li>
+        <li>Select <strong>QR Code</strong>.</li>
+        <li>A QR code for the current board or backlog URL is generated in a modal. Download or copy as needed.</li>
+      </ol>
 
-    <h2 id="global-qr">Global QR Generator</h2>
-    <p>Generate a QR code for <em>any</em> Jira URL from a central page, with automatic content-type detection.</p>
-    <h3>How to use</h3>
-    <ol>
-      <li>In the Jira left navigation, go to <strong>Apps &rarr; QR Hub</strong>.</li>
-      <li>Paste any Jira URL into the input field.</li>
-      <li>Click <strong>Generate</strong>.</li>
-    </ol>
-    <p>QR Hub automatically detects the content type of the URL &mdash; issue, board, project, or generic link &mdash; and labels it accordingly so you always know what you&rsquo;re sharing.</p>
+      <h2 id="global-qr">Global QR Generator</h2>
+      <p>Generate a QR code for <em>any</em> Jira URL from a central page, with automatic content-type detection.</p>
+      <h3>How to use</h3>
+      <ol>
+        <li>In the Jira left navigation, go to <strong>Apps &rarr; QR Hub</strong>.</li>
+        <li>Paste any Jira URL into the input field.</li>
+        <li>Click <strong>Generate</strong>.</li>
+      </ol>
+      <p>QR Hub automatically detects the content type of the URL &mdash; issue, board, project, or generic link &mdash; and labels it accordingly so you always know what you&rsquo;re sharing.</p>
 
-    <h2 id="dashboard-gadget">Dashboard Gadget</h2>
-    <p>Persist a QR code on any Jira dashboard so your team can access it at a glance.</p>
-    <h3>How to use</h3>
-    <ol>
-      <li>Go to a Jira dashboard and click <strong>Edit</strong>.</li>
-      <li>Click <strong>Add gadget</strong> and search for <strong>QR Hub</strong>.</li>
-      <li>Add the gadget to your dashboard.</li>
-      <li>Paste a Jira URL into the gadget&rsquo;s input field and click <strong>Generate</strong>.</li>
-      <li>The QR code is saved automatically and persists across page refreshes using Forge Storage.</li>
-    </ol>
-    <div class="docs-callout">
-      <p>&#128274; The gadget URL is stored using <code>storage:app</code> inside Atlassian&rsquo;s Forge infrastructure. No data leaves Atlassian.</p>
-    </div>
+      <h2 id="dashboard-gadget">Dashboard Gadget</h2>
+      <p>Persist a QR code on any Jira dashboard so your team can access it at a glance.</p>
+      <h3>How to use</h3>
+      <ol>
+        <li>Go to a Jira dashboard and click <strong>Edit</strong>.</li>
+        <li>Click <strong>Add gadget</strong> and search for <strong>QR Hub</strong>.</li>
+        <li>Add the gadget to your dashboard.</li>
+        <li>Paste a Jira URL into the gadget&rsquo;s input field and click <strong>Generate</strong>.</li>
+        <li>The QR code is saved automatically and persists across page refreshes using Forge Storage.</li>
+      </ol>
+      <div class="docs-callout">
+        <p>&#128274; The gadget URL is stored using <code>storage:app</code> inside Atlassian&rsquo;s Forge infrastructure. No data leaves Atlassian.</p>
+      </div>
 
-    <h2 id="download">Download formats</h2>
-    <p>Every QR code in QR Hub can be exported in three formats and three sizes:</p>
-    <ul>
-      <li><strong>Formats:</strong> PNG, JPG, SVG</li>
-      <li><strong>Sizes:</strong> 128px, 256px, 512px</li>
-    </ul>
-    <p>SVG is recommended for print use as it scales to any size without loss of quality. PNG and JPG are better for embedding in documents, emails, or digital displays.</p>
+      <h2 id="download">Download formats</h2>
+      <p>Every QR code in QR Hub can be exported in three formats and three sizes:</p>
+      <ul>
+        <li><strong>Formats:</strong> PNG, JPG, SVG</li>
+        <li><strong>Sizes:</strong> 128px, 256px, 512px</li>
+      </ul>
+      <p>SVG is recommended for print use as it scales to any size without loss of quality. PNG and JPG are better for embedding in documents, emails, or digital displays.</p>
 
-    <h2 id="print">Print as PDF</h2>
-    <p>QR Hub offers three distinct PDF print layouts:</p>
-    <ul>
-      <li><strong>QR Only</strong> &mdash; A clean, minimal layout with just the QR code. Ideal for quick labelling.</li>
-      <li><strong>Full Issue Details</strong> &mdash; The QR code alongside a structured table of issue fields: key, summary, type, status, priority, reporter, assignee, and dates. Useful for printed handovers and asset documentation.</li>
-      <li><strong>Jira Tag</strong> &mdash; A premium vertical layout styled like an airline boarding pass. Includes the QR code, issue key, summary, project, and status. Designed for physical asset tagging in warehouses, labs, or field environments.</li>
-    </ul>
-    <p>To print, click the <strong>Print</strong> button from any QR panel, select your preferred layout, and use your browser&rsquo;s print dialog or save as PDF.</p>
+      <h2 id="print">Print as PDF</h2>
+      <p>QR Hub offers three distinct PDF print layouts:</p>
+      <ul>
+        <li><strong>QR Only</strong> &mdash; A clean, minimal layout with just the QR code. Ideal for quick labelling.</li>
+        <li><strong>Full Issue Details</strong> &mdash; The QR code alongside a structured table of issue fields: key, summary, type, status, priority, reporter, assignee, and dates. Useful for printed handovers and asset documentation.</li>
+        <li><strong>Jira Tag</strong> &mdash; A premium vertical layout styled like an airline boarding pass. Includes the QR code, issue key, summary, project, and status. Designed for physical asset tagging in warehouses, labs, or field environments.</li>
+      </ul>
+      <p>To print, click the <strong>Print</strong> button from any QR panel, select your preferred layout, and use your browser&rsquo;s print dialog or save as PDF.</p>
 
-    <h2 id="styles">QR styles</h2>
-    <p>Customise the visual appearance of your QR codes with three dot styles:</p>
-    <ul>
-      <li><strong>Rounded</strong> &mdash; Soft, circular dots. Modern and approachable.</li>
-      <li><strong>Classy</strong> &mdash; Elegant rounded squares. Professional and clean.</li>
-      <li><strong>Square</strong> &mdash; Standard square dots. Maximum compatibility with all QR scanners.</li>
-    </ul>
-    <p>The style selector is available in every QR generation context across the app. Your selection is applied immediately with live preview.</p>
+      <h2 id="styles">QR styles</h2>
+      <p>Customise the visual appearance of your QR codes with three dot styles:</p>
+      <ul>
+        <li><strong>Rounded</strong> &mdash; Soft, circular dots. Modern and approachable.</li>
+        <li><strong>Classy</strong> &mdash; Elegant rounded squares. Professional and clean.</li>
+        <li><strong>Square</strong> &mdash; Standard square dots. Maximum compatibility with all QR scanners.</li>
+      </ul>
+      <p>The style selector is available in every QR generation context across the app. Your selection is applied immediately with live preview.</p>
 
-    <h2 id="faq">FAQ</h2>
+      <h2 id="faq">FAQ</h2>
 
-    <h3>Does QR Hub store my data?</h3>
-    <p>Only the last URL entered in the dashboard gadget is stored, using <code>storage:app</code> inside Atlassian&rsquo;s Forge infrastructure. No other data is persisted. No data of any kind leaves Atlassian.</p>
+      <h3>Does QR Hub store my data?</h3>
+      <p>Only the last URL entered in the dashboard gadget is stored, using <code>storage:app</code> inside Atlassian&rsquo;s Forge infrastructure. No other data is persisted. No data of any kind leaves Atlassian.</p>
 
-    <h3>Does scanning a QR code bypass Jira permissions?</h3>
-    <p>No. The QR code contains only the Jira URL. All Jira access controls and permission schemes apply normally when the link is opened. If a user does not have access to the issue or board, Jira will handle that restriction as it normally would.</p>
+      <h3>Does scanning a QR code bypass Jira permissions?</h3>
+      <p>No. The QR code contains only the Jira URL. All Jira access controls and permission schemes apply normally when the link is opened. If a user does not have access to the issue or board, Jira will handle that restriction as it normally would.</p>
 
-    <h3>Which browsers are supported?</h3>
-    <p>All modern browsers supported by Jira Cloud (Chrome, Firefox, Safari, Edge). No additional browser setup is required.</p>
+      <h3>Which browsers are supported?</h3>
+      <p>All modern browsers supported by Jira Cloud (Chrome, Firefox, Safari, Edge). No additional browser setup is required.</p>
 
-    <h3>Does QR Hub work on Jira Server or Data Center?</h3>
-    <p>No. QR Hub for Jira supports <strong>Jira Cloud only</strong>. It is built on Atlassian Forge, which is a Cloud-only platform.</p>
+      <h3>Does QR Hub work on Jira Server or Data Center?</h3>
+      <p>No. QR Hub for Jira supports <strong>Jira Cloud only</strong>. It is built on Atlassian Forge, which is a Cloud-only platform.</p>
 
-    <h3>Can I use the QR codes offline?</h3>
-    <p>Once downloaded as PNG, JPG, or SVG, QR codes can be used offline in any context. The QR code itself is a static image &mdash; scanning it simply opens the encoded Jira URL in a browser, which does require internet access to load Jira.</p>
+      <h3>Can I use the QR codes offline?</h3>
+      <p>Once downloaded as PNG, JPG, or SVG, QR codes can be used offline in any context. The QR code itself is a static image &mdash; scanning it simply opens the encoded Jira URL in a browser, which does require internet access to load Jira.</p>
 
-    <h3>Is QR Hub free?</h3>
-    <p>Yes. QR Hub for Jira is completely free with no paid tiers, no feature gates, and no freemium limitations. All features are available to every user from day one.</p>
+      <h3>Is QR Hub free?</h3>
+      <p>Yes. QR Hub for Jira is completely free with no paid tiers, no feature gates, and no freemium limitations. All features are available to every user from day one.</p>
 
-    <h2 id="support">Support</h2>
-    <p>For support, raise a ticket via the Atlassian Marketplace listing (available after launch), or <a href="#" onclick="openPopup();return false;">contact us directly</a>. We aim to respond within one business day.</p>
+      <h2 id="support">Support</h2>
+      <p>For support, raise a ticket via the Atlassian Marketplace listing (available after launch), or <a href="#" onclick="openPopup();return false;">contact us directly</a>. We aim to respond within one business day.</p>
 
-  </div>
-</div>
-</div>
+    </div><!-- /docs-content -->
+  </div><!-- /docs-layout -->
+</div><!-- /docs-page-wrap -->
+
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -231,7 +370,9 @@
       <a href="https://marketplace.atlassian.com">Marketplace</a>
     </div>
   </div>
-</footer><div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+</footer>
+
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
   <div class="popup-card">
     <button class="popup-close" onclick="closePopup()">&times;</button>
     <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
@@ -262,6 +403,8 @@
       <p class="form-note">We respect your privacy. Your information is never shared.</p>
     </form>
   </div>
-</div><script src="../assets/main.js"></script>
+</div>
+
+<script src="../assets/main.js"></script>
 </body>
 </html>
