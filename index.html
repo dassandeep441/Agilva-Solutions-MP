@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Agilva Solutions — Atlassian Marketplace Apps</title>
+<meta name="description" content="Agilva builds powerful Atlassian Marketplace apps. Jira, Confluence, and beyond."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div><nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+        
+      </div>
+    </li>
+    <li><a href="index.html#blog">Blog</a></li>
+    
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-ambient"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="badge-pip"></div><span>Atlassian Marketplace Vendor &amp; Solution Partner</span></div>
+    <div class="hero-eyebrow">Build &middot; Integrate &middot; Automate</div>
+    <h1 class="hero-title">Tools that make<br>teams <em>move faster.</em></h1>
+    <p class="hero-desc">Agilva builds powerful Atlassian Marketplace apps and delivers expert consulting — helping teams get more out of Jira, Confluence, and beyond.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Explore products &darr;</a>
+      <button onclick="openPopup()" class="btn-ghost">Get in Touch</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">6<em>+</em></div><div class="hero-stat-label">Marketplace Apps</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">40<em>+</em></div><div class="hero-stat-label">Clients Served</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4.8<em>★</em></div><div class="hero-stat-label">Avg App Rating</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">6<em>yr</em></div><div class="hero-stat-label">In Practice</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="marquee-sep"></span>Markso Editor</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Link-a-Link</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>QR Hub for Jira</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>QR Hub for Confluence</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Discovery Hub for Jira</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Mathso</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Atlassian Marketplace</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Jira Cloud</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Confluence Cloud</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Forge Apps</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item"><span class="marquee-sep"></span>Markso Editor</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Link-a-Link</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>QR Hub for Jira</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>QR Hub for Confluence</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Discovery Hub for Jira</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Mathso</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Atlassian Marketplace</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Jira Cloud</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Confluence Cloud</div>
+    <div class="marquee-item"><span class="marquee-sep"></span>Forge Apps</div>
+  </div>
+</div>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section id="products">
+  <div class="sec-header reveal">
+    <div><div class="sec-tag">Atlassian Marketplace</div><h2 class="sec-title">Our <em>products</em></h2></div>
+    <p class="sec-header-right">Six apps. Each one built to solve a problem we encountered in the field.</p>
+  </div>
+  <div class="products-grid">
+
+    <a href="markso-editor/index.html" class="prod-card reveal reveal-d1">
+      <div class="prod-card-top">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <div class="prod-arrow">&#x2197;</div>
+      </div>
+      <div class="prod-name">Markso Editor</div>
+      <div class="prod-tagline">Rich text editing for Jira</div>
+      <p class="prod-desc"><!-- REPLACE: 2-line product description --></p>
+      <div class="prod-tags"><span class="prod-tag">Jira Cloud</span><span class="prod-tag">Forge</span></div>
+      <div class="prod-link">Explore product <span>&rarr;</span></div>
+    </a>
+
+    <a href="link-a-link/index.html" class="prod-card reveal reveal-d2">
+      <div class="prod-card-top">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+        <div class="prod-arrow">&#x2197;</div>
+      </div>
+      <div class="prod-name">Link-a-Link</div>
+      <div class="prod-tagline">Smart linking for Confluence</div>
+      <p class="prod-desc"><!-- REPLACE: 2-line product description --></p>
+      <div class="prod-tags"><span class="prod-tag">Confluence Cloud</span><span class="prod-tag">Forge</span></div>
+      <div class="prod-link">Explore product <span>&rarr;</span></div>
+    </a>
+
+    <a href="qr-hub-jira/index.html" class="prod-card reveal reveal-d3">
+      <div class="prod-card-top">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg></div>
+        <div class="prod-arrow">&#x2197;</div>
+      </div>
+      <div class="prod-name">QR Hub for Jira</div>
+      <div class="prod-tagline">QR codes on Jira issues</div>
+      <p class="prod-desc"><!-- REPLACE: 2-line product description --></p>
+      <div class="prod-tags"><span class="prod-tag">Jira Cloud</span><span class="prod-tag">Forge</span></div>
+      <div class="prod-link">Explore product <span>&rarr;</span></div>
+    </a>
+
+    <a href="qr-hub-confluence/index.html" class="prod-card reveal reveal-d1">
+      <div class="prod-card-top">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h7v7h-7z"/></svg></div>
+        <div class="prod-arrow">&#x2197;</div>
+      </div>
+      <div class="prod-name">QR Hub for Confluence</div>
+      <div class="prod-tagline">QR codes on Confluence pages</div>
+      <p class="prod-desc"><!-- REPLACE: 2-line product description --></p>
+      <div class="prod-tags"><span class="prod-tag">Confluence Cloud</span><span class="prod-tag">Forge</span></div>
+      <div class="prod-link">Explore product <span>&rarr;</span></div>
+    </a>
+
+    <a href="discovery-hub-jira/index.html" class="prod-card reveal reveal-d2">
+      <div class="prod-card-top">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+        <div class="prod-arrow">&#x2197;</div>
+      </div>
+      <div class="prod-name">Discovery Hub for Jira</div>
+      <div class="prod-tagline">Surface insights from Jira</div>
+      <p class="prod-desc"><!-- REPLACE: 2-line product description --></p>
+      <div class="prod-tags"><span class="prod-tag">Jira Cloud</span><span class="prod-tag">Forge</span></div>
+      <div class="prod-link">Explore product <span>&rarr;</span></div>
+    </a>
+
+    <a href="mathso/index.html" class="prod-card reveal reveal-d3">
+      <div class="prod-card-top">
+        <div class="prod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7h16M4 12h10M4 17h7"/><path d="M18 12l3 3-3 3"/></svg></div>
+        <div class="prod-arrow">&#x2197;</div>
+      </div>
+      <div class="prod-name">Mathso</div>
+      <div class="prod-tagline">Math expressions in Confluence</div>
+      <p class="prod-desc"><!-- REPLACE: 2-line product description --></p>
+      <div class="prod-tags"><span class="prod-tag">Confluence Cloud</span><span class="prod-tag">Forge</span></div>
+      <div class="prod-link">Explore product <span>&rarr;</span></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="sec-tag">Who we are</div>
+      <h2 class="sec-title">Precision thinking,<br><em>elegant</em> execution</h2>
+      <p class="about-body">
+        We are a small, focused team of strategists and makers. We don&rsquo;t work with
+        everyone &mdash; we work with the <strong>right clients, deeply and well.</strong><br><br>
+        Every app we publish solves a problem we encountered in real consulting engagements.
+        We build what we wish existed. Based in India &mdash; working globally.
+      </p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="https://marketplace.atlassian.com" target="_blank" rel="noopener" class="btn-primary">View on Marketplace &rarr;</a>
+        <button onclick="openPopup()" class="btn-ghost">Work with us</button>
+      </div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="stats-col">
+        <div class="stat-cell"><div class="stat-num">6<em>+</em></div><div class="stat-label">Marketplace Apps</div></div>
+        <div class="stat-cell"><div class="stat-num">40<em>+</em></div><div class="stat-label">Clients Served</div></div>
+        <div class="stat-cell"><div class="stat-num">6<em>yr</em></div><div class="stat-label">In Practice</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG ═══ -->
+<section id="blog">
+  <div class="sec-header reveal">
+    <div><div class="sec-tag">Insights</div><h2 class="sec-title">From the <em>blog</em></h2></div>
+    <p class="sec-header-right">Practical thinking on Atlassian tools, automation, and product craft.</p>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-tile reveal reveal-d1">
+      <div class="blog-tile-top"><span class="blog-tag" style="color:#b89860;border-color:#b8986044;">Atlassian</span><span class="blog-meta"><!-- DATE --></span></div>
+      <h3 class="blog-title"><!-- BLOG TITLE 1 --></h3>
+      <p class="blog-desc"><!-- BLOG EXCERPT 1 --></p>
+      <div class="blog-read">Read article <span>&rarr;</span></div>
+    </div>
+    <div class="blog-tile reveal reveal-d2">
+      <div class="blog-tile-top"><span class="blog-tag" style="color:#d4b87a;border-color:#d4b87a44;">Product</span><span class="blog-meta"><!-- DATE --></span></div>
+      <h3 class="blog-title"><!-- BLOG TITLE 2 --></h3>
+      <p class="blog-desc"><!-- BLOG EXCERPT 2 --></p>
+      <div class="blog-read">Read article <span>&rarr;</span></div>
+    </div>
+    <div class="blog-tile reveal reveal-d3">
+      <div class="blog-tile-top"><span class="blog-tag" style="color:#b89860;border-color:#b8986044;">Confluence</span><span class="blog-meta"><!-- DATE --></span></div>
+      <h3 class="blog-title"><!-- BLOG TITLE 3 --></h3>
+      <p class="blog-desc"><!-- BLOG EXCERPT 3 --></p>
+      <div class="blog-read">Read article <span>&rarr;</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="reveal">
+      <div class="sec-tag">Get in touch</div>
+      <h2 class="contact-title">Let&rsquo;s<br><em>talk.</em></h2>
+      <p class="contact-desc">Tell us about your project or ask us anything about our products. We reply within one business day.</p>
+    </div>
+    <div class="reveal reveal-d2">
+      <div class="contact-form-tile">
+        <div class="form-success" id="hp-form-success"><em>Thank you.</em><br>We&rsquo;ll be in touch shortly.</div>
+        <form id="hp-contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+          <div class="form-row-2">
+            <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+            <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+          </div>
+          <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+          <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+          <div class="form-row">
+            <label class="form-label">Enquiry about</label>
+            <select class="form-select form-input" name="product">
+              <option value="" disabled selected>Select a product / topic</option>
+              <option>Markso Editor</option><option>Link-a-Link</option>
+              <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+              <option>Discovery Hub for Jira</option><option>Mathso</option>
+              <option>General / Other</option>
+            </select>
+          </div>
+          <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question or project..." required></textarea></div>
+          <input type="text" name="_gotcha" style="display:none"/>
+          <input type="hidden" name="_subject" value="New enquiry from agilva.com"/>
+          <button type="submit" class="form-submit" id="hp-submit-btn">Send Message &rarr;</button>
+          <p class="form-note">We respect your privacy. Your information is never shared.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Agilva Solutions"/>
+      <p>A certified Atlassian Marketplace vendor building tools that help teams work smarter. Based in India — working globally.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Products</div>
+      <ul>
+        <li><a href="markso-editor/index.html">Markso Editor</a></li>
+        <li><a href="link-a-link/index.html">Link-a-Link</a></li>
+        <li><a href="qr-hub-jira/index.html">QR Hub for Jira</a></li>
+        <li><a href="qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+        <li><a href="discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+        <li><a href="mathso/index.html">Mathso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <ul>
+        <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Marketplace</a>
+    </div>
+  </div>
+</footer><div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We&rsquo;ll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let&rsquo;s<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row">
+        <label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <!-- honeypot spam trap — do not remove -->
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry from agilva.com"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div><script src="assets/main.js"></script>
+</body>
+</html>

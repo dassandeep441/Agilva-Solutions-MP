@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>QR Hub for Jira — Agilva Solutions</title>
+<meta name="description" content="Generate scannable QR codes for any Jira issue, board, backlog or URL — instantly, inside Jira. Free on Atlassian Marketplace."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/style.css"/>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div><nav id="nav">
+  <a href="../index.html" class="nav-logo"><img src="../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown"><a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a></div>
+    </li>
+    <li><a href="../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav><div class="prod-subnav">
+  <div class="prod-subnav-inner">
+    <a href="index.html" class="prod-subnav-brand">
+      <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg></div>
+      QR Hub for Jira
+    </a>
+    <div class="prod-subnav-links">
+      <a href="index.html" class="active">Product</a>
+      <a href="docs.html">Docs</a>
+      <a href="trust.html">Trust Centre</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</div>
+
+<div class="prod-hero">
+  <div class="prod-hero-ambient"></div>
+  <div class="prod-hero-inner">
+
+    <!-- LEFT: copy -->
+    <div class="reveal">
+      <div class="prod-hero-tag">Atlassian Marketplace &middot; Jira Cloud</div>
+      <h1 class="prod-hero-title">QR Hub<br><em>for Jira</em></h1>
+      <p class="prod-hero-desc">Bridge physical and digital workflows &mdash; instantly generate QR codes for any Jira content. Scan any Jira issue, board, backlog, or URL from anywhere in the world. No external services. No data leaving Atlassian.</p>
+      <div class="prod-hero-actions">
+        <span class="btn-primary" style="opacity:.55;cursor:default;">Coming to Marketplace Soon</span>
+        <a href="docs.html" class="btn-ghost">View docs</a>
+      </div>
+      <div class="prod-hero-rating" style="margin-top:28px;padding-top:24px;border-top:0.5px solid var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:var(--sans);font-weight:300;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Runs on Atlassian
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:300;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
+          100% Free &middot; No paid tiers
+        </span>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:var(--sans);font-weight:300;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No data leaves Atlassian
+        </span>
+      </div>
+    </div>
+
+    <!-- RIGHT: mockup -->
+    <div class="prod-hero-mockup reveal reveal-d2">
+      <div class="mockup-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.75"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg>
+        <p>Add your screenshot here</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="prod-features">
+  <div style="max-width:var(--max);margin:0 auto;">
+    <div class="sec-header reveal">
+      <div>
+        <div class="sec-tag">Features</div>
+        <h2 class="sec-title">Every place you work<br>in Jira, <em>QR Hub is there</em></h2>
+      </div>
+      <p class="sec-header-right">Generate, download, print, and style QR codes without ever leaving your Jira workflow.</p>
+    </div>
+    <div class="features-grid">
+
+      <div class="feat-card reveal reveal-d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M17 17h.01M20 20h.01"/></svg>
+        </div>
+        <h4>Issue QR Panel</h4>
+        <p>Generates a QR code for any Jira issue directly in the issue sidebar, shown alongside key, summary, type, status, project, and assignee. One click to download or copy.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="4" rx="1"/><rect x="3" y="10" width="8" height="11" rx="1"/><rect x="14" y="10" width="7" height="5" rx="1"/><rect x="14" y="18" width="7" height="3" rx="1"/></svg>
+        </div>
+        <h4>Board &amp; Backlog QR</h4>
+        <p>Access QR generation from the &ldquo;&hellip;&rdquo; menu on any Scrum or Kanban board and backlog view. No navigation required &mdash; the QR is always one click away.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-d3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>Dashboard Gadget</h4>
+        <p>Add QR Hub as a Jira dashboard gadget. Paste any Jira URL, generate your QR, and it persists across page refreshes &mdash; ready to share with your team instantly.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <h4>Global QR Generator</h4>
+        <p>Generate a QR code for any Jira URL from <strong>Apps &rarr; QR Hub</strong> in the left nav. Features instant type detection &mdash; it recognises issues, boards, projects, and generic links automatically.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <h4>Download in Multiple Formats</h4>
+        <p>Export QR codes as <strong>PNG, JPG, or SVG</strong> at three sizes: 128px, 256px, or 512px. Use the format and resolution that fits your print or digital use case.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-d3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </div>
+        <h4>Print as PDF</h4>
+        <p>Three print layouts: <strong>QR only</strong>, <strong>full issue details table</strong>, and the premium <strong>Jira Tag</strong> &mdash; a vertical layout styled like an airline boarding pass, for physical asset labelling.</p>
+      </div>
+
+      <div class="feat-card reveal reveal-d1" style="grid-column: 1 / -1; max-width: 380px; margin: 0 auto;">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <h4>QR Styles</h4>
+        <p>Choose between <strong>Rounded</strong>, <strong>Classy</strong>, or <strong>Square</strong> dot styles for every generated QR code. Match the aesthetic of your documentation or branded print materials.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="prod-pricing">
+  <div style="max-width:var(--max);margin:0 auto;">
+    <div class="sec-header reveal">
+      <div>
+        <div class="sec-tag">Pricing</div>
+        <h2 class="sec-title">Completely<br><em>free.</em></h2>
+      </div>
+      <p class="sec-header-right">No paid plans. No feature gates. Every capability is available to every user from day one.</p>
+    </div>
+
+    <!-- Single free card centred -->
+    <div style="max-width:420px;margin:0 auto;" class="reveal reveal-d1">
+      <div class="price-card featured" style="text-align:center;">
+        <div class="price-label">The only plan</div>
+        <div class="price-name">Free</div>
+        <div class="price-amount" style="justify-content:center;display:flex;">$0<em style="align-self:flex-end;margin-bottom:8px;">/mo</em></div>
+        <div class="price-period">For every user on your Jira Cloud instance</div>
+        <div class="price-divider"></div>
+        <div class="price-features" style="text-align:left;">
+          <div class="price-feature">Issue QR Panel</div>
+          <div class="price-feature">Board &amp; Backlog QR</div>
+          <div class="price-feature">Dashboard Gadget</div>
+          <div class="price-feature">Global QR Generator</div>
+          <div class="price-feature">PNG, JPG &amp; SVG export</div>
+          <div class="price-feature">PDF print layouts (3 styles)</div>
+          <div class="price-feature">Rounded, Classy &amp; Square QR styles</div>
+          <div class="price-feature">No external data transfer</div>
+        </div>
+        <span class="btn-primary" style="justify-content:center;opacity:.55;cursor:default;display:flex;">Coming to Marketplace Soon</span>
+        <p style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.7;">Billed at $0. Always. No credit card required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../assets/logo.png" alt="Agilva Solutions"/>
+      <p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Products</div>
+      <ul>
+        <li><a href="../markso-editor/index.html">Markso Editor</a></li>
+        <li><a href="../link-a-link/index.html">Link-a-Link</a></li>
+        <li><a href="../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+        <li><a href="../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+        <li><a href="../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+        <li><a href="../mathso/index.html">Mathso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="../index.html#about">About Us</a></li>
+        <li><a href="../index.html#blog">Blog</a></li>
+        <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <ul>
+        <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
+      <a href="YOUR_TWITTER_URL">Twitter</a>
+      <a href="https://marketplace.atlassian.com">Marketplace</a>
+    </div>
+  </div>
+</footer><div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row">
+        <label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — QR Hub for Jira"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div><script src="../assets/main.js"></script>
+</body>
+</html>
