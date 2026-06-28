@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>QR Hub for Jira — Security Policy</title>
+<meta name="description" content="Security policy for QR Hub for Jira: Atlassian partner security requirements and Agilva's internal secure development practices."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/style.css"/>
+<style>
+  /* ── Security Policy page styles ── */
+  .sec-hero {
+    padding: 96px var(--pad) 64px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .sec-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .sec-tag::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .sec-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--text);
+    margin: 0 0 20px;
+  }
+  .sec-hero h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+  .sec-meta {
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: var(--muted2);
+    letter-spacing: 0.04em;
+  }
+  .sec-meta span { color: var(--accent); }
+
+  .sec-body {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 var(--pad) 96px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* Sidebar */
+  .sec-sidebar {
+    position: sticky;
+    top: 116px;
+  }
+  .sec-sidebar-title {
+    font-family: var(--sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .sec-nav a {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    color: var(--muted2);
+    text-decoration: none;
+    padding: 6px 0;
+    border-left: 2px solid transparent;
+    padding-left: 12px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .sec-nav a:hover,
+  .sec-nav a.active {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+  .sec-nav-divider {
+    height: 1px;
+    background: rgba(240,236,228,0.08);
+    margin: 10px 0 10px 12px;
+  }
+
+  /* Content */
+  .sec-content h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--text);
+    margin: 56px 0 16px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(184,152,96,0.18);
+  }
+  .sec-content h2:first-child { margin-top: 0; border-top: none; }
+  .sec-content h3 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--accent2);
+    letter-spacing: 0.04em;
+    margin: 28px 0 10px;
+  }
+  .sec-content p {
+    font-family: var(--sans);
+    font-size: 0.93rem;
+    line-height: 1.8;
+    color: var(--muted2);
+    margin: 0 0 16px;
+  }
+  .sec-content ul, .sec-content ol {
+    font-family: var(--sans);
+    font-size: 0.93rem;
+    line-height: 1.8;
+    color: var(--muted2);
+    padding-left: 20px;
+    margin: 0 0 16px;
+  }
+  .sec-content li { margin-bottom: 6px; }
+  .sec-content strong { color: var(--text); font-weight: 400; }
+  .sec-content a { color: var(--accent); text-decoration: none; }
+  .sec-content a:hover { text-decoration: underline; }
+  .sec-content code {
+    font-size: 0.8rem;
+    background: var(--bg3);
+    border: 1px solid rgba(184,152,96,0.2);
+    border-radius: 4px;
+    padding: 2px 7px;
+    color: var(--accent2);
+  }
+
+  /* Callout */
+  .sec-callout {
+    background: var(--bg3);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 24px 0;
+  }
+  .sec-callout p { margin: 0; }
+
+  /* Requirement cards grid */
+  .sec-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .sec-card {
+    background: var(--bg3);
+    border: 1px solid rgba(184,152,96,0.14);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .sec-card-icon {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  .sec-card h4 {
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--text);
+    margin: 0 0 8px;
+    letter-spacing: 0.02em;
+  }
+  .sec-card p {
+    font-size: 0.82rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* Status badge */
+  .sec-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin: 4px 4px 4px 0;
+  }
+  .sec-badge.pass {
+    background: rgba(74,197,130,0.12);
+    color: #4ac582;
+    border: 1px solid rgba(74,197,130,0.25);
+  }
+  .sec-badge.pass::before {
+    content: '✓';
+    font-size: 0.7rem;
+  }
+  .sec-badge.na {
+    background: rgba(184,152,96,0.1);
+    color: var(--accent);
+    border: 1px solid rgba(184,152,96,0.2);
+  }
+  .sec-badge.na::before { content: '–'; }
+
+  /* Compliance table */
+  .sec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 28px;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+  }
+  .sec-table th {
+    text-align: left;
+    color: var(--accent);
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(184,152,96,0.2);
+  }
+  .sec-table td {
+    padding: 12px 14px;
+    color: var(--muted2);
+    border-bottom: 1px solid rgba(240,236,228,0.06);
+    vertical-align: top;
+  }
+  .sec-table td:first-child { color: var(--text); }
+  .sec-table tr:last-child td { border-bottom: none; }
+
+  @media (max-width: 768px) {
+    .sec-body { grid-template-columns: 1fr; }
+    .sec-sidebar { position: static; }
+    .sec-cards { grid-template-columns: 1fr; }
+    .sec-table { font-size: 0.78rem; }
+  }
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo"><img src="../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
+    </li>
+    <li><a href="../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<div class="prod-subnav">
+  <div class="prod-subnav-inner">
+    <a href="index.html" class="prod-subnav-brand">
+      <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg></div>
+      QR Hub for Jira
+    </a>
+    <div class="prod-subnav-links">
+      <a href="index.html">Product</a>
+      <a href="docs.html">Docs</a>
+      <a href="trust.html">Trust Centre</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="security.html" class="active">Security Policy</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="sec-hero reveal">
+  <div class="sec-tag">QR Hub for Jira</div>
+  <h1>Security<br><em>Policy</em></h1>
+  <p class="sec-meta">Atlassian Partner Requirements &middot; Agilva Secure Development Practices &middot; <span>Last updated: June 2026</span></p>
+</div>
+
+<!-- BODY -->
+<div class="sec-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sec-sidebar reveal">
+    <div class="sec-sidebar-title">On this page</div>
+    <nav class="sec-nav">
+      <a href="#overview" class="active">Overview</a>
+      <div class="sec-nav-divider"></div>
+      <a href="#atlassian-requirements">Atlassian Partner Requirements</a>
+      <a href="#compliance-table">Compliance Summary</a>
+      <div class="sec-nav-divider"></div>
+      <a href="#secure-development">Secure Development</a>
+      <a href="#access-control">Access Control</a>
+      <a href="#data-handling">Data Handling</a>
+      <a href="#dependency-management">Dependency Management</a>
+      <a href="#incident-response">Incident Response</a>
+      <div class="sec-nav-divider"></div>
+      <a href="#forge-platform">Forge Platform Security</a>
+      <a href="#contact">Security Contact</a>
+    </nav>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="sec-content reveal reveal-d1">
+
+    <h2 id="overview">Overview</h2>
+    <p>Agilva Solutions is a certified Atlassian Marketplace vendor. This Security Policy describes two things: the security requirements we meet as an Atlassian partner, and the internal practices we follow when building, shipping, and maintaining QR Hub for Jira.</p>
+    <p>QR Hub for Jira is built entirely on <strong>Atlassian Forge</strong> — Atlassian's serverless, sandboxed app platform. This architectural choice means the vast majority of infrastructure-level security responsibilities (compute isolation, network security, physical security, DDoS protection) are inherited directly from Atlassian's own enterprise-grade platform, not managed by Agilva independently.</p>
+    <div class="sec-callout">
+      <p>&#128274; Because QR Hub for Jira runs entirely on Forge with no external servers, APIs, or data egress, its attack surface is substantially smaller than traditional cloud apps. There is no Agilva-controlled backend to breach.</p>
+    </div>
+
+    <h2 id="atlassian-requirements">Atlassian Partner Security Requirements</h2>
+    <p>All Atlassian Marketplace vendors must comply with Atlassian's <strong>Marketplace Partner Agreement</strong> and associated security standards. The key requirements and how QR Hub for Jira meets each are described below.</p>
+
+    <div class="sec-cards">
+      <div class="sec-card">
+        <div class="sec-card-icon">🏗️</div>
+        <h4>Forge-Only Architecture</h4>
+        <p>Apps built on Forge must not exfiltrate data outside Atlassian's infrastructure. QR Hub has no external server, no webhook, and no third-party API call of any kind.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-icon">🔐</div>
+        <h4>Minimal Permission Scopes</h4>
+        <p>Atlassian requires partners to request only the permissions necessary for app function. QR Hub requests the minimum scopes needed to read issue data for QR generation.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-icon">📋</div>
+        <h4>Privacy Policy Publication</h4>
+        <p>Partners must publish a clear, accessible privacy policy. Agilva's privacy policy for QR Hub is available at <a href="privacy.html">privacy.html</a> and linked from the Marketplace listing.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-icon">🔄</div>
+        <h4>Vulnerability Disclosure</h4>
+        <p>Partners must have a process for receiving and responding to security vulnerability reports. Agilva's security contact is documented below and monitored daily.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-icon">📦</div>
+        <h4>Dependency Hygiene</h4>
+        <p>Partners must keep third-party dependencies up to date and free of known critical vulnerabilities. Agilva performs regular dependency audits before every release.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-card-icon">🛡️</div>
+        <h4>Data Residency Compliance</h4>
+        <p>Forge apps automatically inherit Atlassian's data residency controls. Forge Storage data is stored within the same region as the customer's Atlassian site.</p>
+      </div>
+    </div>
+
+    <h2 id="compliance-table">Compliance Summary</h2>
+    <table class="sec-table">
+      <thead>
+        <tr>
+          <th>Requirement</th>
+          <th>Standard</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No external data egress</td>
+          <td>Atlassian Partner Agreement</td>
+          <td><span class="sec-badge pass">Compliant</span></td>
+        </tr>
+        <tr>
+          <td>Minimal OAuth scopes</td>
+          <td>Atlassian Partner Agreement</td>
+          <td><span class="sec-badge pass">Compliant</span></td>
+        </tr>
+        <tr>
+          <td>Published Privacy Policy</td>
+          <td>Atlassian Partner Agreement</td>
+          <td><span class="sec-badge pass">Compliant</span></td>
+        </tr>
+        <tr>
+          <td>Vulnerability disclosure process</td>
+          <td>Atlassian Partner Agreement</td>
+          <td><span class="sec-badge pass">Compliant</span></td>
+        </tr>
+        <tr>
+          <td>Forge platform security controls</td>
+          <td>Atlassian Forge SLA</td>
+          <td><span class="sec-badge pass">Inherited</span></td>
+        </tr>
+        <tr>
+          <td>Data residency</td>
+          <td>Atlassian Data Residency Program</td>
+          <td><span class="sec-badge pass">Inherited</span></td>
+        </tr>
+        <tr>
+          <td>SOC 2 Type II (vendor)</td>
+          <td>Atlassian infrastructure</td>
+          <td><span class="sec-badge pass">Inherited</span></td>
+        </tr>
+        <tr>
+          <td>ISO 27001 (vendor)</td>
+          <td>Atlassian infrastructure</td>
+          <td><span class="sec-badge pass">Inherited</span></td>
+        </tr>
+        <tr>
+          <td>Independent penetration test</td>
+          <td>Atlassian Bug Bounty / Partner</td>
+          <td><span class="sec-badge na">Planned — pre-launch</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Certifications marked <strong>Inherited</strong> are covered by Atlassian's own compliance programme, which applies to all Forge apps by virtue of running on Atlassian infrastructure. Agilva does not need to independently obtain these certifications for QR Hub for Jira.</p>
+
+    <h2 id="secure-development">Secure Development Practices</h2>
+    <p>Agilva follows a security-first development approach throughout the software development lifecycle (SDLC) for all Marketplace apps.</p>
+
+    <h3>Code review</h3>
+    <p>All code changes require a peer review before merging. No code is deployed to production directly from a single developer's branch. Reviews explicitly check for: injection risks, unsafe data handling, unnecessary permission use, and insecure defaults.</p>
+
+    <h3>Security testing</h3>
+    <p>Each release includes:</p>
+    <ul>
+      <li>Static analysis via ESLint with security-focused rule sets</li>
+      <li>Dependency vulnerability scanning via <code>npm audit</code> prior to every release</li>
+      <li>Manual security review against the <a href="https://owasp.org/www-project-top-ten/" target="_blank" rel="noopener">OWASP Top 10</a> for any feature touching user input or stored data</li>
+    </ul>
+
+    <h3>Forge security model</h3>
+    <p>QR Hub for Jira is built using Atlassian's Forge platform, which enforces a strict security sandbox:</p>
+    <ul>
+      <li>Each app execution runs in an isolated runtime — no shared state between tenants</li>
+      <li>Outbound network calls are restricted by Forge's egress controls; QR Hub makes none</li>
+      <li>All Forge Storage reads and writes are scoped to the installing tenant only</li>
+      <li>Atlassian manages runtime patching, OS hardening, and compute isolation</li>
+    </ul>
+
+    <h2 id="access-control">Access Control</h2>
+
+    <h3>Internal access</h3>
+    <p>Production Forge environments are managed exclusively through the Atlassian Developer Console. Access is restricted to authorised Agilva engineers and protected by Atlassian's own SSO and MFA requirements.</p>
+
+    <h3>No Agilva-controlled servers</h3>
+    <p>There are no Agilva-managed servers, databases, or cloud infrastructure associated with QR Hub for Jira. There is therefore no Agilva-side access control surface for customer data — because no customer data reaches Agilva systems in the first place.</p>
+
+    <h3>App permissions within Jira</h3>
+    <p>QR Hub for Jira respects all existing Jira permission schemes. The app reads issue data only for the purpose of generating the QR code displayed in the panel. It does not modify issues, projects, or any Jira configuration. Users who lack access to an issue in Jira will not have that access granted by the app.</p>
+
+    <h2 id="data-handling">Data Handling &amp; Retention</h2>
+    <p>QR Hub for Jira processes the minimum data necessary to generate QR codes. It does not build user profiles, track behaviour, or aggregate data across tenants.</p>
+
+    <h3>What is stored</h3>
+    <p>The only data persisted by QR Hub for Jira is the URL entered into the Dashboard Gadget, stored via <code>storage:app</code> in Atlassian Forge Storage. This URL is stored per-site, not per-user, and persists only until the gadget is removed or the URL is updated.</p>
+
+    <h3>What is not stored</h3>
+    <ul>
+      <li>Issue content, summaries, or field values</li>
+      <li>User identities or account IDs</li>
+      <li>QR code images (generated in-browser, never sent to any server)</li>
+      <li>Usage analytics or telemetry of any kind</li>
+    </ul>
+
+    <h3>Retention &amp; deletion</h3>
+    <p>Stored gadget URLs are automatically deleted when the app is uninstalled from a Jira site. Atlassian Forge Storage provides no mechanism for Agilva to access or export individual tenants' stored data outside of the app's own runtime context.</p>
+
+    <h2 id="dependency-management">Dependency Management</h2>
+    <p>QR Hub for Jira is built on <strong>Atlassian Forge</strong> with a deliberately lean dependency tree. We maintain security of third-party code as follows:</p>
+    <ul>
+      <li><strong>Audit before every release:</strong> <code>npm audit</code> is run as part of the pre-release checklist. Releases are blocked if any high or critical severity vulnerabilities are detected.</li>
+      <li><strong>Regular dependency updates:</strong> Dependencies are reviewed and updated at minimum once per month, and immediately upon disclosure of a relevant CVE.</li>
+      <li><strong>Minimal footprint:</strong> We avoid pulling in large general-purpose libraries where a smaller, purpose-built alternative or a native Forge API achieves the same result.</li>
+    </ul>
+
+    <h2 id="incident-response">Incident Response</h2>
+    <p>In the event of a confirmed security incident affecting QR Hub for Jira, Agilva will:</p>
+    <ol>
+      <li><strong>Assess within 24 hours</strong> of detection or report — determine scope, affected tenants, and severity.</li>
+      <li><strong>Contain</strong> — if the issue is in Forge-controlled infrastructure, coordinate with Atlassian's security team. If in Agilva-controlled code, deploy a patch or temporarily disable the affected feature.</li>
+      <li><strong>Notify affected customers</strong> within 72 hours of confirming a breach that affects their data, in line with GDPR Article 33 obligations where applicable.</li>
+      <li><strong>Post-incident review</strong> — document the root cause, timeline, and remediation steps. Update internal controls to prevent recurrence.</li>
+    </ol>
+    <div class="sec-callout">
+      <p>&#128680; Given that QR Hub for Jira stores no personally identifiable information and no sensitive business data, the practical risk and scope of any incident is inherently limited.</p>
+    </div>
+
+    <h2 id="forge-platform">Atlassian Forge Platform Security</h2>
+    <p>By building on Forge, QR Hub for Jira inherits a comprehensive set of platform-level security controls maintained by Atlassian. These include:</p>
+    <ul>
+      <li><strong>Compute isolation:</strong> Each app invocation runs in a fully isolated sandbox. No cross-tenant code execution is possible.</li>
+      <li><strong>Encrypted storage:</strong> All data in Forge Storage is encrypted at rest using AES-256 and in transit using TLS 1.2+.</li>
+      <li><strong>SOC 2 Type II &amp; ISO 27001:</strong> Atlassian's infrastructure — including Forge — is independently audited and certified. Certificates are available on <a href="https://www.atlassian.com/trust" target="_blank" rel="noopener">atlassian.com/trust</a>.</li>
+      <li><strong>DDoS &amp; network protection:</strong> Managed by Atlassian at the platform level. No Agilva configuration required or possible.</li>
+      <li><strong>Bug Bounty Programme:</strong> Atlassian operates an active bug bounty programme covering the Forge platform itself.</li>
+    </ul>
+    <p>Full details of Atlassian's security programme are available at <a href="https://www.atlassian.com/trust/security" target="_blank" rel="noopener">atlassian.com/trust/security</a>.</p>
+
+    <h2 id="contact">Security Contact</h2>
+    <p>To report a security vulnerability, suspected breach, or raise a security concern related to QR Hub for Jira, please contact Agilva directly:</p>
+    <div class="sec-callout">
+      <p>&#128139; <strong>Security disclosures:</strong> <a href="#" onclick="openPopup();return false;">Contact us via the form</a> and select <em>General / Other</em> as the topic, noting "Security Disclosure" in your message. We treat all security reports as high priority and aim to respond within one business day.</p>
+    </div>
+    <p>We follow responsible disclosure practices. If you report a valid vulnerability, we will work with you to resolve it before any public disclosure, and credit your report in our release notes if you wish.</p>
+
+  </div><!-- /sec-content -->
+</div><!-- /sec-body -->
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../assets/logo.png" alt="Agilva Solutions"/>
+      <p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Products</div>
+      <ul>
+        <li><a href="../markso-editor/index.html">Markso Editor</a></li>
+        <li><a href="../link-a-link/index.html">Link-a-Link</a></li>
+        <li><a href="../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+        <li><a href="../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+        <li><a href="../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+        <li><a href="../mathso/index.html">Mathso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="../index.html#about">About Us</a></li>
+        <li><a href="../index.html#blog">Blog</a></li>
+        <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <ul>
+        <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
+      <a href="YOUR_TWITTER_URL">Twitter</a>
+      <a href="https://marketplace.atlassian.com">Marketplace</a>
+    </div>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row">
+        <label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — QR Hub for Jira"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div>
+
+<script src="../assets/main.js"></script>
+</body>
+</html>
