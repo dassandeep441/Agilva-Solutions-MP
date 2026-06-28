@@ -8,39 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/style.css"/>
-<style>
-/* ── DOCS LAYOUT OVERRIDE — fixes sidebar column collapse ── */
-.docs-page-wrap {
-  position: relative;
-  z-index: 1;
-  background: var(--bg);
-  min-height: calc(100vh - 116px);
-}
-.docs-layout {
-  display: grid !important;
-  grid-template-columns: 220px 1fr !important;
-  gap: 56px;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 80px var(--pad);
-  align-items: start;
-}
-/* Sidebar: must NOT be reveal-animated or it collapses the column */
-.docs-sidebar {
-  position: sticky;
-  top: 130px;
-  /* Override any reveal opacity that collapses layout */
-  opacity: 1 !important;
-  transform: none !important;
-}
-@media (max-width: 1000px) {
-  .docs-layout { grid-template-columns: 1fr !important; }
-  .docs-sidebar { position: static; }
-}
-@media (max-width: 900px) {
-  .docs-layout { padding: 40px 24px 64px; }
-}
-</style>
 </head>
 <body>
 <div id="cursor"></div>
@@ -90,7 +57,7 @@
 <div class="docs-page-wrap">
   <div class="docs-layout">
 
-    <!-- SIDEBAR — no reveal class, prevents opacity:0 collapsing the grid column -->
+    <!-- SIDEBAR: no .reveal — sidebar must always be visible for grid layout to hold -->
     <aside class="docs-sidebar">
       <div class="docs-sidebar-title">Documentation</div>
       <nav class="docs-nav">
@@ -200,7 +167,7 @@
         <li><strong>Classy</strong> &mdash; Elegant rounded squares. Professional and clean.</li>
         <li><strong>Square</strong> &mdash; Standard square dots. Maximum compatibility with all QR scanners.</li>
       </ul>
-      <p>The style selector is available in every QR generation context across the app. Your selection is applied immediately with live preview.</p>
+      <p>The style selector is available in every QR generation context. Your selection is applied immediately with live preview.</p>
 
       <h2 id="faq">FAQ</h2>
       <h3>Does QR Hub store my data?</h3>
@@ -212,7 +179,7 @@
       <h3>Does QR Hub work on Jira Server or Data Center?</h3>
       <p>No. QR Hub for Jira supports <strong>Jira Cloud only</strong>. It is built on Atlassian Forge, which is a Cloud-only platform.</p>
       <h3>Can I use the QR codes offline?</h3>
-      <p>Once downloaded as PNG, JPG, or SVG, QR codes can be used offline. Scanning still requires internet to load Jira.</p>
+      <p>Once downloaded as PNG, JPG, or SVG, QR codes can be used offline. Scanning still requires internet access to load Jira.</p>
       <h3>Is QR Hub free?</h3>
       <p>Yes. QR Hub for Jira is completely free with no paid tiers, no feature gates, and no freemium limitations.</p>
 
