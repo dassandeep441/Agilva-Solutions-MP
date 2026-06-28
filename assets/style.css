@@ -58,7 +58,7 @@ body {
 
 /* ── NAV ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 var(--pad);
   height: 64px;
@@ -69,7 +69,6 @@ nav {
 .nav-logo { text-decoration: none; display: flex; align-items: center; }
 .nav-logo img {
   height: 40px; width: auto; object-fit: contain;
-  /* scale up the small rendered logo — adjust if needed */
   transform: scale(2.1); transform-origin: left center;
 }
 .nav-links { display: flex; gap: 4px; list-style: none; align-items: center; }
@@ -108,6 +107,7 @@ nav {
   padding: 10px 0;
   opacity: 0; visibility: hidden; pointer-events: none;
   transition: opacity .25s, transform .25s, visibility .25s;
+  z-index: 600;
 }
 .has-drop:hover .dropdown {
   opacity: 1; visibility: visible;
@@ -459,7 +459,7 @@ nav {
 
 /* ── PRODUCT SUB-NAV ── */
 .prod-subnav {
-  position: sticky; top: 64px; z-index: 150;
+  position: sticky; top: 64px; z-index: 400;
   background: rgba(10,10,10,.96); backdrop-filter: blur(20px);
   border-bottom: 0.5px solid var(--line);
 }
@@ -560,6 +560,12 @@ nav {
 .price-feature::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
 
 /* ── DOCS PAGE ── */
+.docs-page-wrap {
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  min-height: calc(100vh - 116px);
+}
 .docs-layout { max-width: var(--max); margin: 0 auto; padding: 80px var(--pad); display: grid; grid-template-columns: 220px 1fr; gap: 56px; align-items: start; }
 .docs-sidebar { position: sticky; top: 130px; }
 .docs-sidebar-title { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; font-family: var(--sans); font-weight: 300; }
