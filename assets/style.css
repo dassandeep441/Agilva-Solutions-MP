@@ -57,14 +57,21 @@ body {
 }
 
 /* ── NAV ── */
-#nav {
+nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 500;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 var(--pad);
   height: 64px;
+  border-bottom: 0.5px solid var(--line);
+  overflow: visible;
+}
+/* backdrop on pseudo so nav has no stacking context from backdrop-filter */
+nav::before {
+  content: '';
+  position: absolute; inset: 0;
   background: rgba(8,8,8,.94);
   backdrop-filter: blur(20px);
-  border-bottom: 0.5px solid var(--line);
+  z-index: -1;
 }
 .nav-logo { text-decoration: none; display: flex; align-items: center; }
 .nav-logo img {
@@ -100,14 +107,15 @@ body {
   position: absolute; top: calc(100% + 10px); left: 50%;
   transform: translateX(-50%) translateY(-6px);
   min-width: 230px;
-  background: rgba(12,12,12,.95);
+  background: rgba(8,8,8,.98);
   backdrop-filter: blur(24px);
   border: 0.5px solid rgba(184,152,96,.18);
   border-radius: 12px;
   padding: 10px 0;
   opacity: 0; visibility: hidden; pointer-events: none;
   transition: opacity .25s, transform .25s, visibility .25s;
-  z-index: 600;
+  z-index: 9000;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
 }
 .has-drop:hover .dropdown {
   opacity: 1; visibility: visible;
