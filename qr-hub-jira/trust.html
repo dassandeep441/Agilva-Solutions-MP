@@ -4,20 +4,23 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>QR Hub for Jira — Trust Centre</title>
-<meta name="description" content="Security, privacy, and compliance information for QR Hub for Jira by Agilva Solutions."/>
+<meta name="description" content="Security, privacy and compliance information for QR Hub for Jira by Agilva Solutions."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="../assets/style.css"/>
 </head>
 <body>
 <div id="cursor"></div>
-<div id="cursor-ring"></div><nav id="nav">
+<div id="cursor-ring"></div>
+
+<nav id="nav">
   <a href="../index.html" class="nav-logo"><img src="../assets/logo.png" alt="Agilva Solutions"/></a>
   <ul class="nav-links">
     <li><a href="../index.html">Home</a></li>
     <li><a href="../index.html#about">About</a></li>
     <li class="has-drop"><a href="#">Products</a>
-      <div class="dropdown"><a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+      <div class="dropdown">
+        <a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
         <div class="dd-divider"></div>
         <a href="../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
         <div class="dd-divider"></div>
@@ -27,12 +30,15 @@
         <div class="dd-divider"></div>
         <a href="../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
         <div class="dd-divider"></div>
-        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a></div>
+        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
     </li>
     <li><a href="../index.html#blog">Blog</a></li>
     <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
   </ul>
-</nav><div class="prod-subnav">
+</nav>
+
+<div class="prod-subnav">
   <div class="prod-subnav-inner">
     <a href="index.html" class="prod-subnav-brand">
       <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg></div>
@@ -48,91 +54,109 @@
   </div>
 </div>
 
-<div style="background:var(--bg);min-height:calc(100vh - 116px);">
-<div class="legal-wrap">
+<div class="docs-page-wrap">
+  <div class="docs-layout">
 
-  <div class="sec-tag" style="margin-bottom:14px">QR Hub for Jira</div>
-  <h1>Trust<br><em>Centre</em></h1>
-  <p class="legal-meta">Security &middot; Privacy &middot; Compliance &middot; Last updated: June 2026</p>
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar">
+      <div class="docs-sidebar-title">Trust Centre</div>
+      <nav class="docs-nav">
+        <a href="#overview" class="active">Overview</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#runs-on-atlassian">Runs on Atlassian</a>
+        <a href="#no-data-egress">No Data Egress</a>
+        <a href="#minimal-scopes">Minimal Scopes</a>
+        <a href="#data-stored">Data Stored</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#certifications">Certifications</a>
+        <a href="#scopes-table">Scopes Table</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
 
-  <!-- TRUST BADGES GRID -->
-  <div class="trust-grid">
-    <div class="trust-cell reveal reveal-d1">
-      <div class="trust-cell-icon">&#127959;</div>
-      <h3>Runs on Atlassian</h3>
-      <p>QR Hub for Jira runs entirely on Atlassian Forge infrastructure. There are no external servers, no external APIs, and no egress of any kind. All computation happens inside Atlassian&rsquo;s platform.</p>
-    </div>
-    <div class="trust-cell reveal reveal-d2">
-      <div class="trust-cell-icon">&#128274;</div>
-      <h3>No Data Leaves Atlassian</h3>
+    <!-- CONTENT -->
+    <div class="docs-content reveal">
+
+      <h1>Trust<br><em>Centre</em></h1>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:40px;letter-spacing:.06em;">Security &middot; Privacy &middot; Compliance &middot; Last updated: June 2026</p>
+
+      <h2 id="overview">Overview</h2>
+      <p>QR Hub for Jira is built entirely on <strong>Atlassian Forge</strong> — Atlassian's secure, serverless app platform. This page documents everything you need to know about how the app handles data, what it can access, and what security guarantees are in place.</p>
+      <div class="docs-callout">
+        <p>&#128274; QR Hub for Jira has no external servers, no external APIs, and no data egress of any kind. All computation happens inside Atlassian's platform.</p>
+      </div>
+
+      <h2 id="runs-on-atlassian">Runs on Atlassian</h2>
+      <p>QR Hub for Jira runs entirely on <strong>Atlassian Forge</strong> infrastructure. There are no Agilva-controlled servers, no external APIs, and no egress of any kind. All computation happens inside Atlassian's platform — the same infrastructure that powers Jira itself.</p>
+      <p>This means the security posture of QR Hub for Jira is directly tied to Atlassian's own enterprise-grade security programme, including SOC 2 Type II and ISO 27001 certifications.</p>
+
+      <h2 id="no-data-egress">No Data Leaves Atlassian</h2>
       <p>The only data persisted by QR Hub is the dashboard gadget URL, stored via <code>storage:app</code> within Atlassian Forge. No user data, issue content, or URLs are transmitted to any Agilva-controlled server.</p>
-    </div>
-    <div class="trust-cell reveal reveal-d3">
-      <div class="trust-cell-icon">&#127758;</div>
-      <h3>Data Residency</h3>
-      <p>QR Hub inherits Atlassian&rsquo;s full data residency guarantees. Data is stored in the region selected for your Atlassian Cloud instance. Agilva has no control over or access to this data.</p>
-    </div>
-    <div class="trust-cell reveal reveal-d4">
-      <div class="trust-cell-icon">&#128203;</div>
-      <h3>GDPR &amp; SOC 2</h3>
-      <p>QR Hub does not independently hold GDPR or SOC 2 certifications. Compliance is inherited from the Atlassian Forge platform, which operates under Atlassian&rsquo;s own certifications and DPA.</p>
+      <p>QR code images are generated entirely in the browser using the encoded URL. No image data is sent to any server at any point.</p>
+
+      <h2 id="minimal-scopes">Minimal Permission Scopes</h2>
+      <p>QR Hub for Jira requests only the permissions strictly necessary for its function. We do not request write access to issues, projects, or any Jira configuration.</p>
+      <p>All permission scopes are listed in the <a href="#scopes-table">Scopes Table</a> below.</p>
+
+      <h2 id="data-stored">What Data is Stored</h2>
+      <p>QR Hub for Jira stores only one piece of data:</p>
+      <ul>
+        <li>The URL entered into the <strong>Dashboard Gadget</strong>, stored via <code>storage:app</code> in Atlassian Forge Storage. This URL persists until the gadget is removed or the URL is updated by a user.</li>
+      </ul>
+      <p>The following data is explicitly <strong>not</strong> stored:</p>
+      <ul>
+        <li>Issue content, summaries, or field values</li>
+        <li>User identities or Atlassian account IDs</li>
+        <li>QR code images (generated in-browser only)</li>
+        <li>Usage analytics, events, or telemetry of any kind</li>
+        <li>Board or backlog data</li>
+      </ul>
+      <p>When the app is uninstalled, all Forge Storage data is automatically deleted by Atlassian's platform.</p>
+
+      <h2 id="certifications">Certifications &amp; Compliance</h2>
+      <p>Because QR Hub for Jira runs on Atlassian Forge, it inherits Atlassian's enterprise compliance certifications by virtue of the platform:</p>
+      <ul>
+        <li><strong>SOC 2 Type II</strong> — Atlassian infrastructure (inherited)</li>
+        <li><strong>ISO 27001</strong> — Atlassian infrastructure (inherited)</li>
+        <li><strong>GDPR</strong> — Forge Storage data resides in the same region as your Atlassian site</li>
+        <li><strong>Data Residency</strong> — Atlassian Data Residency Programme applies automatically</li>
+      </ul>
+      <p>Atlassian's full compliance documentation is available at <a href="https://www.atlassian.com/trust" target="_blank" rel="noopener">atlassian.com/trust</a>.</p>
+
+      <h2 id="scopes-table">Permission Scopes</h2>
+      <p>The following OAuth scopes are requested by QR Hub for Jira:</p>
+      <table style="width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px;margin:16px 0 28px;">
+        <thead>
+          <tr>
+            <th style="text-align:left;color:var(--accent);font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-bottom:1px solid rgba(184,152,96,.2);">Scope</th>
+            <th style="text-align:left;color:var(--accent);font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-bottom:1px solid rgba(184,152,96,.2);">Purpose</th>
+            <th style="text-align:left;color:var(--accent);font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-bottom:1px solid rgba(184,152,96,.2);">Access</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:12px 14px;color:var(--text);border-bottom:1px solid rgba(240,236,228,.06);"><code>read:jira-work</code></td>
+            <td style="padding:12px 14px;color:var(--muted2);border-bottom:1px solid rgba(240,236,228,.06);">Read issue key and URL for QR generation</td>
+            <td style="padding:12px 14px;color:var(--muted2);border-bottom:1px solid rgba(240,236,228,.06);">Read only</td>
+          </tr>
+          <tr>
+            <td style="padding:12px 14px;color:var(--text);border-bottom:1px solid rgba(240,236,228,.06);"><code>storage:app</code></td>
+            <td style="padding:12px 14px;color:var(--muted2);border-bottom:1px solid rgba(240,236,228,.06);">Store dashboard gadget URL in Forge Storage</td>
+            <td style="padding:12px 14px;color:var(--muted2);border-bottom:1px solid rgba(240,236,228,.06);">App-scoped only</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>No write scopes, no admin scopes, no user identity scopes are requested.</p>
+
+      <h2 id="contact">Security Contact</h2>
+      <p>To report a security concern or vulnerability, <a href="#" onclick="openPopup();return false;">contact us directly</a> and note "Security Disclosure" in your message. We aim to respond within one business day.</p>
+      <p>For Agilva's full security policy including our secure development practices and incident response process, see the <a href="security.html">Security Policy</a> page.</p>
+
     </div>
   </div>
-
-  <h2>Scopes requested</h2>
-  <p>QR Hub for Jira requests only the minimum Atlassian scopes required to operate each feature. No scope is requested beyond what is functionally necessary.</p>
-
-  <div style="overflow-x:auto;margin:24px 0;">
-    <table style="width:100%;border-collapse:collapse;font-size:13px;">
-      <thead>
-        <tr style="border-bottom:0.5px solid var(--line2);">
-          <th style="text-align:left;padding:10px 16px 10px 0;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:300;font-family:var(--sans);">Scope</th>
-          <th style="text-align:left;padding:10px 0;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);font-weight:300;font-family:var(--sans);">Reason</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="border-bottom:0.5px solid var(--line);">
-          <td style="padding:12px 16px 12px 0;color:var(--muted2);vertical-align:top;"><code>read:jira-work</code></td>
-          <td style="padding:12px 0;color:var(--muted);line-height:1.7;">Read issue details, board and project information to display alongside QR codes in the Issue QR Panel.</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid var(--line);">
-          <td style="padding:12px 16px 12px 0;color:var(--muted2);vertical-align:top;"><code>read:board-scope:jira-software</code></td>
-          <td style="padding:12px 0;color:var(--muted);line-height:1.7;">Read board name and ID for board QR generation from the board &amp; backlog menus.</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid var(--line);">
-          <td style="padding:12px 16px 12px 0;color:var(--muted2);vertical-align:top;"><code>read:project:jira</code></td>
-          <td style="padding:12px 0;color:var(--muted);line-height:1.7;">Read project details for project context in the QR panel and print layouts.</td>
-        </tr>
-        <tr style="border-bottom:0.5px solid var(--line);">
-          <td style="padding:12px 16px 12px 0;color:var(--muted2);vertical-align:top;"><code>read:issue-details:jira</code></td>
-          <td style="padding:12px 0;color:var(--muted);line-height:1.7;">Read extended issue fields (priority, reporter, description, dates) for the Full Issue Details and Jira Tag PDF print layouts.</td>
-        </tr>
-        <tr>
-          <td style="padding:12px 16px 12px 0;color:var(--muted2);vertical-align:top;"><code>storage:app</code></td>
-          <td style="padding:12px 0;color:var(--muted);line-height:1.7;">Persist the dashboard gadget URL across page refreshes using Forge Storage inside Atlassian infrastructure.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Certifications &amp; badges</h2>
-  <ul>
-    <li><strong>Runs on Atlassian</strong> &mdash; Qualifies for the &ldquo;Runs on Atlassian&rdquo; badge. No external hosting, no external APIs, no data egress.</li>
-    <li><strong>Cloud Fortified</strong> &mdash; Not yet applied for. Agilva will apply for Cloud Fortified designation after the Marketplace listing is live.</li>
-    <li><strong>GDPR / SOC 2</strong> &mdash; Inherited from Atlassian Forge. No independent certification held by Agilva at this time.</li>
-  </ul>
-
-  <h2>Jira permission model</h2>
-  <p>QR Hub does not modify, bypass, or extend Jira&rsquo;s permission system in any way. Generated QR codes contain only public Jira URLs. When a QR code is scanned, Jira&rsquo;s standard access controls apply &mdash; users who do not have access to an issue or board will be handled by Jira as normal.</p>
-
-  <h2>Vulnerability disclosure</h2>
-  <p>If you discover a security issue in QR Hub for Jira or any Agilva product, please report it responsibly by emailing <a href="mailto:security@agilva.com">security@agilva.com</a>. We acknowledge all reports within 48 hours and aim to resolve critical issues within 14 days.</p>
-
-  <h2>Questions?</h2>
-  <p>For any security or compliance questions, <a href="#" onclick="openPopup();return false;">contact us directly</a>. We respond within one business day.</p>
-
 </div>
-</div>
+
 <footer class="site-footer">
   <div class="footer-grid">
     <div class="footer-brand">
@@ -155,6 +179,7 @@
       <ul>
         <li><a href="../index.html#about">About Us</a></li>
         <li><a href="../index.html#blog">Blog</a></li>
+        <li><a href="../trust/index.html">Trust Centre</a></li>
         <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
       </ul>
     </div>
@@ -175,7 +200,9 @@
       <a href="https://marketplace.atlassian.com">Marketplace</a>
     </div>
   </div>
-</footer><div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+</footer>
+
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
   <div class="popup-card">
     <button class="popup-close" onclick="closePopup()">&times;</button>
     <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
@@ -206,6 +233,7 @@
       <p class="form-note">We respect your privacy. Your information is never shared.</p>
     </form>
   </div>
-</div><script src="../assets/main.js"></script>
+</div>
+<script src="../assets/main.js"></script>
 </body>
 </html>
