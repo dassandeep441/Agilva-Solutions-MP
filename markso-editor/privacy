@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Markso Editor — Privacy Policy — Agilva Solutions</title>
+<meta name="description" content="Privacy Policy for Markso Editor for Confluence by Agilva Solutions."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../../assets/style.css"/>
+<style>
+  .policy-wrap{max-width:760px;margin:0 auto;padding:80px 40px 120px;}
+  .policy-tag{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+  .policy-title{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;line-height:1.1;margin:0 0 12px;color:var(--fg);}
+  .policy-title em{font-style:italic;color:var(--accent);}
+  .policy-date{font-family:var(--sans);font-size:12px;font-weight:300;color:var(--muted);margin-bottom:48px;letter-spacing:.06em;}
+  .policy-wrap h2{font-family:var(--serif);font-size:1.7rem;font-weight:300;color:var(--fg);margin:48px 0 14px;padding-top:48px;border-top:.5px solid var(--line);}
+  .policy-wrap h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+  .policy-wrap p{font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.8;color:var(--muted);margin:0 0 16px;}
+  .policy-wrap strong{color:var(--fg);font-weight:400;}
+  .policy-wrap ul{font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.8;color:var(--muted);padding-left:20px;margin:0 0 20px;}
+  .policy-wrap li{margin-bottom:6px;}
+  .policy-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-family:var(--sans);font-size:13px;}
+  .policy-table th{text-align:left;font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:8px 12px;border-bottom:.5px solid var(--line);}
+  .policy-table td{padding:10px 12px;border-bottom:.5px solid rgba(240,237,232,.06);color:var(--muted);font-weight:300;vertical-align:top;}
+  .policy-table td strong{color:var(--fg);font-weight:400;}
+  .policy-table tr:last-child td{border-bottom:none;}
+  @media(max-width:860px){.policy-wrap{padding:48px 24px 80px;}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<nav id="nav">
+  <a href="../../index.html" class="nav-logo"><img src="../../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="../../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
+    </li>
+    <li><a href="../../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+<div class="prod-subnav">
+  <div class="prod-subnav-inner">
+    <a href="../index.html" class="prod-subnav-brand">
+      <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      Markso Editor
+    </a>
+    <div class="prod-subnav-links">
+      <a href="../index.html">Product</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="../trust/index.html">Trust Centre</a>
+      <a href="index.html" class="active">Privacy Policy</a>
+      <a href="../security/index.html">Security Policy</a>
+    </div>
+  </div>
+</div>
+
+<div class="policy-wrap">
+  <div class="policy-tag">Privacy Policy</div>
+  <h1 class="policy-title">Markso Editor<br><em>Privacy Policy</em></h1>
+  <div class="policy-date">Effective date: June 2026 &nbsp;&middot;&nbsp; Applies to: Markso Editor for Confluence (Confluence Cloud)</div>
+
+  <h2>Overview</h2>
+  <p>Markso Editor for Confluence ("Markso", "we", "our") is a Confluence Cloud plugin developed by Agilva Solutions. This policy explains what data Markso collects, how it is used, and what it never does. Markso is built on Atlassian Forge — all data remains within Atlassian infrastructure.</p>
+
+  <h2>Data Markso Collects</h2>
+  <p>Markso collects one item of user data:</p>
+  <table class="policy-table">
+    <thead><tr><th>Data</th><th>What it is</th><th>Where stored</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Dark mode preference</strong></td><td>A single boolean (on/off) per user</td><td>Atlassian Forge KV Store, keyed by Atlassian account ID</td></tr>
+    </tbody>
+  </table>
+  <p>No name, email address, profile data, or any other personal information is collected.</p>
+
+  <h2>Data Markso Processes but Never Stores</h2>
+  <ul>
+    <li><strong>Page XHTML content</strong> — read and written back to Confluence only, never copied or stored externally.</li>
+    <li><strong>Markdown content</strong> — stored only as a Confluence macro parameter on your page, never copied externally.</li>
+    <li><strong>Export content</strong> — converted entirely client-side in your browser and downloaded locally. It never touches any server.</li>
+  </ul>
+
+  <h2>Data Markso Never Collects</h2>
+  <ul>
+    <li>No names, email addresses, or contact information</li>
+    <li>No IP addresses or device identifiers</li>
+    <li>No usage analytics or behavioural data</li>
+    <li>No page content logs</li>
+    <li>No crash reports sent externally</li>
+  </ul>
+
+  <h2>Data Residency</h2>
+  <p>All data resides within the customer's Atlassian Cloud instance and Atlassian's Forge infrastructure. Atlassian's own data residency controls apply. Markso has no independent data residency configuration because it stores no data outside Atlassian.</p>
+
+  <h2>Third Parties</h2>
+  <p>None. Markso uses no third-party services, SDKs, analytics tools, or APIs at runtime. All libraries are bundled at build time.</p>
+
+  <h2>Data Retention</h2>
+  <p>User preferences (dark mode) persist until the app is uninstalled or the user clears them. No other data is retained by Markso. Markdown content stored in macro parameters is part of your Confluence pages — retention follows your Confluence page retention workflow.</p>
+
+  <h2>Data Deletion</h2>
+  <p>Uninstalling Markso from your Confluence site removes all Forge KV Store data automatically via Atlassian's Forge lifecycle hooks. Markdown content stored in macro parameters is part of your Confluence pages — deletion follows your Confluence page deletion workflow.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>Markso does not knowingly collect any information from children. The plugin is a professional productivity tool intended for use by Confluence Cloud workspace members.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy is updated, the new version will be published at this URL with an updated effective date. Continued use of Markso after any change constitutes acceptance of the revised policy.</p>
+
+  <h2>Contact</h2>
+  <p>For any privacy-related questions, contact Agilva Solutions via the <a href="#" onclick="openPopup();return false;" style="color:var(--accent);text-decoration:none;">Get in Touch</a> form. We respond within one business day.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><img src="../../assets/logo.png" alt="Agilva Solutions"/><p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p></div>
+    <div class="footer-col"><div class="footer-col-title">Products</div><ul>
+      <li><a href="../../markso-editor/index.html">Markso Editor</a></li>
+      <li><a href="../../link-a-link/index.html">Link-a-Link</a></li>
+      <li><a href="../../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+      <li><a href="../../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+      <li><a href="../../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+      <li><a href="../../mathso/index.html">Mathso</a></li>
+    </ul></div>
+    <div class="footer-col"><div class="footer-col-title">Company</div><ul>
+      <li><a href="../../index.html#about">About Us</a></li>
+      <li><a href="../../index.html#blog">Blog</a></li>
+      <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><div class="footer-col-title">Connect</div><ul>
+      <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+      <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials"><a href="YOUR_LINKEDIN_URL">LinkedIn</a><a href="YOUR_TWITTER_URL">Twitter</a><a href="https://marketplace.atlassian.com">Marketplace</a></div>
+  </div>
+</footer>
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row"><label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — Markso Editor"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div>
+<script src="../../assets/main.js"></script>
+</body>
+</html>
