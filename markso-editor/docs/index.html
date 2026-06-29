@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Markso Editor — Docs — Agilva Solutions</title>
+<meta name="description" content="Documentation for Markso Editor for Confluence — Markdown editing, XHTML source control, and page export."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../../assets/style.css"/>
+<style>
+  .docs-layout{max-width:var(--max,1160px);margin:0 auto;padding:80px 40px 120px;display:grid;grid-template-columns:220px 1fr;gap:64px;align-items:start;}
+  .docs-sidebar{position:sticky;top:100px;}
+  .docs-nav-group{margin-bottom:32px;}
+  .docs-nav-label{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
+  .docs-nav-link{display:block;font-family:var(--sans);font-size:13px;font-weight:300;color:var(--muted);text-decoration:none;padding:5px 0;border-left:1px solid transparent;padding-left:12px;transition:color .2s,border-color .2s;}
+  .docs-nav-link:hover,.docs-nav-link.active{color:var(--fg);border-left-color:var(--accent);}
+  .docs-content h2{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--fg);margin:64px 0 16px;padding-top:64px;border-top:.5px solid var(--line);}
+  .docs-content h2:first-child{margin-top:0;padding-top:0;border-top:none;}
+  .docs-content h3{font-family:var(--sans);font-size:13px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:40px 0 14px;}
+  .docs-content p{font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.8;color:var(--muted);margin:0 0 16px;}
+  .docs-content strong{color:var(--fg);font-weight:400;}
+  .docs-content code{font-size:13px;background:rgba(240,237,232,.07);border:1px solid rgba(240,237,232,.12);border-radius:4px;padding:1px 6px;color:var(--fg);}
+  .docs-content ul{font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.8;color:var(--muted);padding-left:20px;margin:0 0 20px;}
+  .docs-content li{margin-bottom:6px;}
+  .docs-steps{counter-reset:step;list-style:none;padding:0;margin:0 0 24px;}
+  .docs-steps li{counter-increment:step;display:flex;gap:16px;margin-bottom:16px;align-items:flex-start;}
+  .docs-steps li::before{content:counter(step);min-width:28px;height:28px;border-radius:50%;background:rgba(99,102,241,.12);border:1px solid rgba(99,102,241,.25);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:11px;font-weight:400;color:var(--accent);flex-shrink:0;margin-top:2px;}
+  .docs-table{width:100%;border-collapse:collapse;margin:20px 0 32px;font-family:var(--sans);font-size:13px;}
+  .docs-table th{text-align:left;font-weight:400;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding:8px 12px;border-bottom:.5px solid var(--line);}
+  .docs-table td{padding:10px 12px;border-bottom:.5px solid rgba(240,237,232,.06);color:var(--muted);font-weight:300;vertical-align:top;}
+  .docs-table td strong{color:var(--fg);font-weight:400;}
+  .docs-table tr:last-child td{border-bottom:none;}
+  .docs-kbd{display:inline-block;font-family:var(--sans);font-size:11px;color:var(--fg);background:rgba(240,237,232,.08);border:1px solid rgba(240,237,232,.15);border-radius:4px;padding:2px 7px;}
+  @media(max-width:860px){.docs-layout{grid-template-columns:1fr;padding:48px 24px 80px;}.docs-sidebar{position:static;}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<nav id="nav">
+  <a href="../../index.html" class="nav-logo"><img src="../../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="../../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
+    </li>
+    <li><a href="../../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+<div class="prod-subnav">
+  <div class="prod-subnav-inner">
+    <a href="../index.html" class="prod-subnav-brand">
+      <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      Markso Editor
+    </a>
+    <div class="prod-subnav-links">
+      <a href="../index.html">Product</a>
+      <a href="index.html" class="active">Docs</a>
+      <a href="../trust/index.html">Trust Centre</a>
+      <a href="../privacy/index.html">Privacy Policy</a>
+      <a href="../security/index.html">Security Policy</a>
+    </div>
+  </div>
+</div>
+
+<div class="docs-layout">
+  <aside class="docs-sidebar">
+    <div class="docs-nav-group">
+      <div class="docs-nav-label">Getting Started</div>
+      <a href="#what-is-markso" class="docs-nav-link active">What is Markso Editor?</a>
+      <a href="#requirements" class="docs-nav-link">System Requirements</a>
+      <a href="#installation" class="docs-nav-link">Installation</a>
+    </div>
+    <div class="docs-nav-group">
+      <div class="docs-nav-label">Markdown Editor</div>
+      <a href="#md-inserting" class="docs-nav-link">Inserting the Macro</a>
+      <a href="#md-writing" class="docs-nav-link">Writing Markdown</a>
+      <a href="#md-toolbar" class="docs-nav-link">Toolbar Reference</a>
+      <a href="#md-tasks" class="docs-nav-link">Task Lists</a>
+      <a href="#md-mermaid" class="docs-nav-link">Mermaid Diagrams</a>
+      <a href="#md-emoji" class="docs-nav-link">Emoji Shortcodes</a>
+      <a href="#md-darkmode" class="docs-nav-link">Dark Mode</a>
+      <a href="#md-images" class="docs-nav-link">Uploading Images</a>
+    </div>
+    <div class="docs-nav-group">
+      <div class="docs-nav-label">Source Editor</div>
+      <a href="#src-opening" class="docs-nav-link">Opening the Editor</a>
+      <a href="#src-editing" class="docs-nav-link">Editing XHTML</a>
+      <a href="#src-format" class="docs-nav-link">Format &amp; Prettify</a>
+      <a href="#src-findreplace" class="docs-nav-link">Find &amp; Replace</a>
+      <a href="#src-folding" class="docs-nav-link">Tag Folding</a>
+      <a href="#src-preview" class="docs-nav-link">Preview Before Save</a>
+    </div>
+    <div class="docs-nav-group">
+      <div class="docs-nav-label">Export</div>
+      <a href="#export-single" class="docs-nav-link">Single Page Export</a>
+      <a href="#export-bulk" class="docs-nav-link">Bulk Export</a>
+      <a href="#export-zip" class="docs-nav-link">Zip Structure</a>
+    </div>
+    <div class="docs-nav-group">
+      <div class="docs-nav-label">Reference</div>
+      <a href="#shortcuts" class="docs-nav-link">Keyboard Shortcuts</a>
+      <a href="#faq" class="docs-nav-link">FAQ</a>
+    </div>
+  </aside>
+
+  <main class="docs-content">
+    <h2 id="what-is-markso">What is Markso Editor for Confluence?</h2>
+    <p>Markso Editor is a free Confluence Cloud plugin that adds three editing capabilities to your Confluence workspace: a live Markdown editor, an XHTML source editor, and a Markdown export tool. Built on Atlassian Forge, it runs entirely within Atlassian infrastructure and never sends your page content to any external server.</p>
+
+    <h2 id="requirements">System Requirements</h2>
+    <p>Markso Editor requires <strong>Confluence Cloud</strong>. It is not available for Confluence Data Center or Confluence Server. No additional software, browser extensions, or configuration is required.</p>
+
+    <h2 id="installation">Installation</h2>
+    <ol class="docs-steps">
+      <li><span>Go to the Atlassian Marketplace and search for <strong>Markso Editor for Confluence</strong>.</span></li>
+      <li><span>Click <strong>Get it now</strong> and select your Confluence Cloud site.</span></li>
+      <li><span>Review and accept the permission scopes.</span></li>
+      <li><span>Markso is installed instantly — no restart or additional configuration required.</span></li>
+    </ol>
+
+    <h2 id="md-inserting">Inserting the Macro</h2>
+    <p>Open any Confluence page in edit mode. In the content body, type <code>/Markso</code> or use the Insert menu to find the Markso Markdown macro. Select it to insert a new Markdown editor block on the page.</p>
+
+    <h2 id="md-writing">Writing Markdown</h2>
+    <p>The editor opens in a split-pane view: your Markdown source on the left and a live rendered preview on the right. Markso supports <strong>GitHub-Flavored Markdown (GFM)</strong>, including:</p>
+    <ul>
+      <li>Headings (H1–H6), bold, italic, strikethrough</li>
+      <li>Ordered and unordered lists, nested lists</li>
+      <li>Tables with alignment</li>
+      <li>Fenced code blocks with syntax highlighting</li>
+      <li>Blockquotes and horizontal rules</li>
+      <li>Task lists (interactive checkboxes)</li>
+      <li>Mermaid diagrams via fenced <code>```mermaid</code> blocks</li>
+      <li>Collapsible sections using <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code></li>
+    </ul>
+
+    <h2 id="md-toolbar">Toolbar Reference</h2>
+    <table class="docs-table">
+      <thead><tr><th>Group</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Text</strong></td><td>Bold, Italic, Strikethrough, Inline code, Superscript, Subscript</td></tr>
+        <tr><td><strong>Style</strong></td><td>Text colour, Highlight, Font size</td></tr>
+        <tr><td><strong>Structure</strong></td><td>H1–H6, Paragraph, Blockquote, Horizontal rule</td></tr>
+        <tr><td><strong>Lists</strong></td><td>Ordered list, Unordered list, Task list, Indent, Outdent</td></tr>
+        <tr><td><strong>Insert</strong></td><td>Table (size grid), Link, Image, Emoji picker, Mermaid diagram, Collapsible section, Code block</td></tr>
+        <tr><td><strong>Alignment</strong></td><td>Left, Centre, Right</td></tr>
+        <tr><td><strong>Actions</strong></td><td>Undo, Redo, Dark mode toggle, Full-screen</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="md-tasks">Task Lists &amp; Interactivity</h2>
+    <p>Create task list items using <code>- [ ]</code> for unchecked and <code>- [x]</code> for checked. When the page is published, each checkbox is clickable. Checking or unchecking a task saves the updated state back to the macro automatically — no re-editing required.</p>
+
+    <h2 id="md-mermaid">Mermaid Diagrams</h2>
+    <p>Insert diagrams by opening a fenced code block with <code>```mermaid</code>. Markso renders the diagram live in the preview pane. Supported types include flowcharts, sequence diagrams, Gantt charts, class diagrams, and state diagrams.</p>
+
+    <h2 id="md-emoji">Emoji Shortcodes</h2>
+    <p>Use the emoji picker in the toolbar or type standard shortcodes such as <code>:rocket:</code>, <code>:white_check_mark:</code>, or <code>:warning:</code> directly in your Markdown. Markso resolves shortcodes to Unicode emoji on render.</p>
+
+    <h2 id="md-darkmode">Dark Mode</h2>
+    <p>Click the moon icon in the toolbar to switch the editor to a VS Code-style dark theme. Your preference is saved to your Atlassian account via Forge KV Store and persists across sessions and devices.</p>
+
+    <h2 id="md-images">Uploading Images as Attachments</h2>
+    <p>Drag and drop an image into the editor or use the image toolbar button. Markso uploads the file as a Confluence page attachment and inserts the correct Markdown image reference automatically. Images are stored as standard Confluence attachments and follow your page's permissions.</p>
+
+    <h2 id="src-opening">Opening the Source Editor</h2>
+    <p>On any published Confluence page, open the page actions menu (<strong>&bull;&bull;&bull;</strong>) and select <strong>Edit XHTML Source</strong>. The Source Editor opens as a full-screen modal showing the raw Confluence storage format for the page.</p>
+
+    <h2 id="src-editing">Editing XHTML</h2>
+    <p>The editor uses CodeMirror 6 with full XML syntax highlighting and live validation. The <strong>Save</strong> button is disabled until your XHTML is fully valid — invalid markup cannot be written to the page under any circumstances.</p>
+
+    <h2 id="src-format">Format &amp; Prettify</h2>
+    <p>Click <strong>Format</strong> in the toolbar or press <span class="docs-kbd">Shift+Alt+F</span> to auto-indent and prettify the XHTML. This is non-destructive — it only adjusts whitespace and indentation.</p>
+
+    <h2 id="src-findreplace">Find &amp; Replace</h2>
+    <p>Press <span class="docs-kbd">Ctrl+F</span> to open Find, or <span class="docs-kbd">Ctrl+H</span> to open Find &amp; Replace. Both support plain text and regular expressions.</p>
+
+    <h2 id="src-folding">Tag Folding</h2>
+    <p>Click the fold gutter to the left of any opening tag to collapse its contents. Use the toolbar button to fold all regions at once. Folding is visual only and does not affect the saved content.</p>
+
+    <h2 id="src-preview">Preview Before Save</h2>
+    <p>Click <strong>Preview</strong> to see how Confluence will render your edited XHTML before saving. The preview uses Confluence's own renderer so what you see is exactly what will be published.</p>
+
+    <h2 id="export-single">Single Page Export</h2>
+    <p>Open the page actions menu (<strong>&bull;&bull;&bull;</strong>) on any Confluence page and select <strong>Export to Markdown</strong>. Markso converts the page to clean Markdown and downloads a <code>.md</code> file immediately. All conversion happens in your browser — no content leaves Atlassian.</p>
+
+    <h2 id="export-bulk">Bulk Export</h2>
+    <p>Open <strong>Apps &rarr; Markso Export</strong> in the Confluence left navigation. Select a root page and choose whether to include child pages. Toggle <strong>Include attachments</strong> to bundle linked images. Click <strong>Export</strong> to download a zip archive.</p>
+
+    <h2 id="export-zip">Zip Folder Structure</h2>
+    <p>The exported zip mirrors your Confluence page tree exactly. Each page becomes a <code>.md</code> file named after the page title. Child pages are placed in a subdirectory named after their parent. Attachments are placed in an <code>attachments/</code> subfolder adjacent to their page file.</p>
+
+    <h2 id="shortcuts">Keyboard Shortcuts</h2>
+    <table class="docs-table">
+      <thead><tr><th>Action</th><th>Shortcut</th></tr></thead>
+      <tbody>
+        <tr><td>Format / prettify</td><td><span class="docs-kbd">Shift+Alt+F</span></td></tr>
+        <tr><td>Find</td><td><span class="docs-kbd">Ctrl+F</span></td></tr>
+        <tr><td>Find &amp; Replace</td><td><span class="docs-kbd">Ctrl+H</span></td></tr>
+        <tr><td>Command palette</td><td><span class="docs-kbd">F1</span></td></tr>
+        <tr><td>Undo</td><td><span class="docs-kbd">Ctrl+Z</span></td></tr>
+        <tr><td>Redo</td><td><span class="docs-kbd">Ctrl+Y</span></td></tr>
+        <tr><td>Fold all</td><td>Toolbar button</td></tr>
+        <tr><td>Copy source</td><td>Toolbar button</td></tr>
+      </tbody>
+    </table>
+
+    <h2 id="faq">FAQ</h2>
+
+    <h3>Does Markso work on Confluence Data Center or Server?</h3>
+    <p>No. Markso Editor is built on Atlassian Forge and is available for <strong>Confluence Cloud only</strong>.</p>
+
+    <h3>Does Markso send my page content to any external server?</h3>
+    <p>No. All processing happens within Atlassian infrastructure. Markso has no external API calls, no analytics, and no third-party integrations. Export conversion runs entirely in your browser.</p>
+
+    <h3>What Markdown flavour does Markso support?</h3>
+    <p>Markso supports <strong>GitHub-Flavored Markdown (GFM)</strong> — tables, task lists, strikethrough, fenced code blocks, and autolinks — plus extensions for Mermaid diagrams and collapsible sections.</p>
+
+    <h3>Can I use the Source Editor without the Markdown editor?</h3>
+    <p>Yes. The Source Editor is a standalone feature available from the page actions menu on any Confluence page.</p>
+
+    <h3>Where is my dark mode preference stored?</h3>
+    <p>In <strong>Atlassian Forge KV Store</strong>, keyed to your Atlassian account ID. It is accessible only to you and persists across sessions and devices.</p>
+
+    <h3>What happens to my Markdown content if I uninstall Markso?</h3>
+    <p>Your Markdown source is stored as a Confluence macro parameter. If Markso is uninstalled, the macro will no longer render, but the raw Markdown text remains in the page's XHTML and can be recovered via Confluence's storage format access.</p>
+
+    <h3>Can Markso export attachments alongside Markdown files?</h3>
+    <p>Yes. During bulk export, toggle <strong>Include attachments</strong> to bundle images and other linked attachments in an <code>attachments/</code> subfolder inside the zip.</p>
+
+    <h3>Is it safe to use the XHTML Source Editor? Can I break my page?</h3>
+    <p>Markso validates all XML before allowing a save. If your XHTML is invalid, the Save button remains disabled — you cannot write broken markup to a Confluence page. Always use Preview to confirm the result before saving.</p>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><img src="../../assets/logo.png" alt="Agilva Solutions"/><p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p></div>
+    <div class="footer-col"><div class="footer-col-title">Products</div><ul>
+      <li><a href="../../markso-editor/index.html">Markso Editor</a></li>
+      <li><a href="../../link-a-link/index.html">Link-a-Link</a></li>
+      <li><a href="../../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+      <li><a href="../../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+      <li><a href="../../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+      <li><a href="../../mathso/index.html">Mathso</a></li>
+    </ul></div>
+    <div class="footer-col"><div class="footer-col-title">Company</div><ul>
+      <li><a href="../../index.html#about">About Us</a></li>
+      <li><a href="../../index.html#blog">Blog</a></li>
+      <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><div class="footer-col-title">Connect</div><ul>
+      <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+      <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials"><a href="YOUR_LINKEDIN_URL">LinkedIn</a><a href="YOUR_TWITTER_URL">Twitter</a><a href="https://marketplace.atlassian.com">Marketplace</a></div>
+  </div>
+</footer>
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row"><label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — Markso Editor"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div>
+<script src="../../assets/main.js"></script>
+</body>
+</html>
