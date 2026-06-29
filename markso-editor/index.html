@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Markso Editor for Confluence — Agilva Solutions</title>
+<meta name="description" content="Markdown editing, XHTML source control, and page export — all free, all native to Confluence Cloud."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../assets/style.css"/>
+<style>
+  .prod-hero{position:relative;overflow:hidden;padding:120px 40px 100px;}
+  .prod-hero-ambient{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(99,102,241,.12) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 20% 70%,rgba(99,102,241,.07) 0%,transparent 70%);}
+  .prod-hero-inner{position:relative;max-width:var(--max,1160px);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .prod-hero-tag{font-family:var(--sans);font-size:11px;font-weight:300;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;}
+  .prod-hero-title{font-family:var(--serif);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.05;margin:0 0 24px;color:var(--fg);}
+  .prod-hero-title em{font-style:italic;color:var(--accent);}
+  .prod-hero-desc{font-family:var(--sans);font-size:15px;font-weight:300;line-height:1.75;color:var(--muted);max-width:460px;margin:0 0 36px;}
+  .prod-hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .prod-hero-rating{margin-top:28px;padding-top:24px;border-top:.5px solid var(--line);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .rating-badge{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:var(--sans);font-weight:300;}
+  .rating-badge.accent{color:var(--accent);}.rating-badge.muted{color:var(--muted);}
+  .hero-visual{display:flex;justify-content:center;align-items:center;}
+  .hero-visual-placeholder{width:100%;max-width:580px;aspect-ratio:16/10;border-radius:16px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;background:linear-gradient(135deg,rgba(99,102,241,.08) 0%,rgba(99,102,241,.03) 100%);border:1px solid rgba(99,102,241,.2);box-shadow:0 32px 80px rgba(0,0,0,.45),0 8px 24px rgba(99,102,241,.1);}
+  .hero-icon-mark{width:80px;height:80px;border-radius:16px;background:#0d1117;border:1px solid rgba(99,102,241,.3);display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:22px;font-weight:300;color:var(--accent);letter-spacing:-.02em;}
+  .hero-placeholder-label{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:300;}
+  @media(max-width:860px){.prod-hero{padding:80px 24px 72px;}.prod-hero-inner{grid-template-columns:1fr;gap:48px;}.hero-visual{order:-1;}.hero-visual-placeholder{max-width:100%;}}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<nav id="nav">
+  <a href="../index.html" class="nav-logo"><img src="../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
+    </li>
+    <li><a href="../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+<div class="prod-subnav">
+  <div class="prod-subnav-inner">
+    <a href="index.html" class="prod-subnav-brand">
+      <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      Markso Editor
+    </a>
+    <div class="prod-subnav-links">
+      <a href="index.html" class="active">Product</a>
+      <a href="docs/index.html">Docs</a>
+      <a href="trust/index.html">Trust Centre</a>
+      <a href="privacy/index.html">Privacy Policy</a>
+      <a href="security/index.html">Security Policy</a>
+    </div>
+  </div>
+</div>
+<div class="prod-hero">
+  <div class="prod-hero-ambient"></div>
+  <div class="prod-hero-inner">
+    <div class="reveal">
+      <div class="prod-hero-tag">Atlassian Marketplace &middot; Confluence Cloud</div>
+      <h1 class="prod-hero-title">Markso<br><em>Editor</em></h1>
+      <p class="prod-hero-desc">Markdown editing, XHTML source control, and page export — all free, all native to Confluence Cloud. Three powerful editing tools in one plugin, built entirely on Atlassian Forge.</p>
+      <div class="prod-hero-actions">
+        <span class="btn-primary" style="opacity:.55;cursor:default;">Coming to Marketplace Soon</span>
+        <a href="docs/index.html" class="btn-ghost">View docs</a>
+      </div>
+      <div class="prod-hero-rating">
+        <span class="rating-badge accent"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Runs on Atlassian</span>
+        <span class="rating-badge muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>100% Free &middot; All features</span>
+        <span class="rating-badge muted"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No data leaves Atlassian</span>
+      </div>
+    </div>
+    <div class="hero-visual reveal-d1">
+      <!-- Swap this placeholder for <img src="../assets/markso-editor-hero.png" ...> when screenshot is ready -->
+      <div class="hero-visual-placeholder">
+        <div class="hero-icon-mark">&lt;/&gt;M</div>
+        <span class="hero-placeholder-label">Screenshot coming soon</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="prod-features">
+  <div style="max-width:var(--max);margin:0 auto;">
+    <div class="sec-header reveal">
+      <div><div class="sec-tag">Features</div><h2 class="sec-title">Three editors.<br><em>One free plugin.</em></h2></div>
+      <p class="sec-header-right">Write Markdown, edit raw XHTML, and export entire page trees — without leaving Confluence.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal reveal-d1">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h4>Live Markdown Editor</h4>
+        <p>Write GitHub-Flavored Markdown in a split-pane editor with real-time preview. Supports tables, task lists, code blocks, Mermaid diagrams, collapsible sections, and more.</p>
+      </div>
+      <div class="feat-card reveal reveal-d2">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h4>Interactive Task Lists</h4>
+        <p>Checkboxes on published pages are clickable — check and uncheck tasks directly on the page. State saves automatically back to the macro, no re-editing required.</p>
+      </div>
+      <div class="feat-card reveal reveal-d3">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h4>XHTML Source Editor</h4>
+        <p>Edit the raw Confluence storage format with full XML syntax highlighting, live validation, find &amp; replace, tag folding, minimap navigation, and a preview before save. Invalid XML can never be written to a page.</p>
+      </div>
+      <div class="feat-card reveal reveal-d1">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <h4>Markdown Export</h4>
+        <p>Export any page or entire page hierarchy to clean Markdown files. Downloads as a structured zip mirroring the Confluence page tree. All conversion runs client-side — page content never leaves Atlassian.</p>
+      </div>
+      <div class="feat-card reveal reveal-d2">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <h4>Rich Formatting Toolbar</h4>
+        <p>40+ formatting actions including text colour, font size, emoji picker, table size grid, alignment, highlight, superscript, subscript, Mermaid diagrams, and collapsible sections.</p>
+      </div>
+      <div class="feat-card reveal reveal-d3">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <h4>Dark Mode</h4>
+        <p>Full VS Code-style dark theme for both the Markdown editor and Source Editor. One-click toggle, preference saved per user across sessions.</p>
+      </div>
+      <div class="feat-card reveal reveal-d1" style="grid-column:1/-1;max-width:380px;margin:0 auto;">
+        <div class="feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4>Runs on Atlassian</h4>
+        <p>Zero external data egress. All compute on Atlassian Forge serverless infrastructure. All storage in Confluence or Forge KV Store. Your page content never touches any server outside Atlassian.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prod-pricing">
+  <div style="max-width:var(--max);margin:0 auto;">
+    <div class="sec-header reveal">
+      <div><div class="sec-tag">Pricing</div><h2 class="sec-title">Completely<br><em>free.</em></h2></div>
+      <p class="sec-header-right">All features. All team sizes. No expiry. No credit card required.</p>
+    </div>
+    <div style="max-width:420px;margin:0 auto;" class="reveal reveal-d1">
+      <div class="price-card featured" style="text-align:center;">
+        <div class="price-label">The only plan</div>
+        <div class="price-name">Free</div>
+        <div class="price-amount" style="justify-content:center;display:flex;">$0<em style="align-self:flex-end;margin-bottom:8px;">/mo</em></div>
+        <div class="price-period">For every user on your Confluence Cloud instance</div>
+        <div class="price-divider"></div>
+        <div class="price-features" style="text-align:left;">
+          <div class="price-feature">Live Markdown Editor with real-time preview</div>
+          <div class="price-feature">Interactive Task Lists</div>
+          <div class="price-feature">XHTML Source Editor with live validation</div>
+          <div class="price-feature">Markdown Export — single page &amp; bulk</div>
+          <div class="price-feature">Rich Formatting Toolbar (40+ actions)</div>
+          <div class="price-feature">Dark Mode — VS Code style</div>
+          <div class="price-feature">Runs on Atlassian — zero data egress</div>
+        </div>
+        <span class="btn-primary" style="justify-content:center;opacity:.55;cursor:default;display:flex;">Coming to Marketplace Soon</span>
+        <p style="font-size:11px;color:var(--muted);margin-top:14px;line-height:1.7;">Billed at $0. Always. No credit card required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><img src="../assets/logo.png" alt="Agilva Solutions"/><p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p></div>
+    <div class="footer-col"><div class="footer-col-title">Products</div><ul>
+      <li><a href="../markso-editor/index.html">Markso Editor</a></li>
+      <li><a href="../link-a-link/index.html">Link-a-Link</a></li>
+      <li><a href="../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+      <li><a href="../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+      <li><a href="../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+      <li><a href="../mathso/index.html">Mathso</a></li>
+    </ul></div>
+    <div class="footer-col"><div class="footer-col-title">Company</div><ul>
+      <li><a href="../index.html#about">About Us</a></li>
+      <li><a href="../index.html#blog">Blog</a></li>
+      <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+    </ul></div>
+    <div class="footer-col"><div class="footer-col-title">Connect</div><ul>
+      <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+      <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials"><a href="YOUR_LINKEDIN_URL">LinkedIn</a><a href="YOUR_TWITTER_URL">Twitter</a><a href="https://marketplace.atlassian.com">Marketplace</a></div>
+  </div>
+</footer>
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row"><label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — Markso Editor"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div>
+<script src="../assets/main.js"></script>
+</body>
+</html>
