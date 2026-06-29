@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>QR Hub for Confluence — Trust Centre</title>
+<meta name="description" content="Trust Centre for QR Hub for Confluence. Security, privacy, data handling, and compliance information."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../../assets/style.css"/>
+
+<style>
+.docs-layout {
+  display: grid !important;
+  grid-template-columns: 220px 1fr !important;
+  gap: 56px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 80px 56px !important;
+  align-items: start !important;
+}
+.docs-sidebar {
+  position: sticky !important;
+  top: 130px !important;
+  width: 220px !important;
+  opacity: 1 !important;
+  transform: none !important;
+  align-self: start !important;
+}
+.docs-content { min-width: 0 !important; }
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<nav id="nav">
+  <a href="../../index.html" class="nav-logo"><img src="../../assets/logo.png" alt="Agilva Solutions"/></a>
+  <ul class="nav-links">
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../../index.html#about">About</a></li>
+    <li class="has-drop"><a href="#">Products</a>
+      <div class="dropdown">
+        <a href="../../markso-editor/index.html"><span class="dd-dot"></span>Markso Editor</a>
+        <div class="dd-divider"></div>
+        <a href="../../link-a-link/index.html"><span class="dd-dot"></span>Link-a-Link</a>
+        <div class="dd-divider"></div>
+        <a href="../../qr-hub-jira/index.html"><span class="dd-dot"></span>QR Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../../qr-hub-confluence/index.html"><span class="dd-dot"></span>QR Hub for Confluence</a>
+        <div class="dd-divider"></div>
+        <a href="../../discovery-hub-jira/index.html"><span class="dd-dot"></span>Discovery Hub for Jira</a>
+        <div class="dd-divider"></div>
+        <a href="../../mathso/index.html"><span class="dd-dot"></span>Mathso</a>
+      </div>
+    </li>
+    <li><a href="../../index.html#blog">Blog</a></li>
+    <li><a href="#" onclick="openPopup();return false;" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<div class="prod-subnav">
+  <div class="prod-subnav-inner">
+    <a href="../index.html" class="prod-subnav-brand">
+      <div class="subnav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01M17 20h.01M20 20h.01"/></svg></div>
+      QR Hub for Confluence
+    </a>
+    <div class="prod-subnav-links">
+      <a href="../index.html">Product</a>
+      <a href="../docs/index.html">Docs</a>
+      <a href="index.html" class="active">Trust Centre</a>
+      <a href="../privacy/index.html">Privacy Policy</a>
+      <a href="../security/index.html">Security Policy</a>
+    </div>
+  </div>
+</div>
+
+<div class="docs-page-wrap">
+  <div class="docs-layout">
+
+    <aside class="docs-sidebar">
+      <div class="docs-sidebar-title">Trust Centre</div>
+      <nav class="docs-nav">
+        <a href="#overview" class="active">Overview</a>
+        <a href="#data-handling">Data Handling</a>
+        <a href="#scopes">Permissions &amp; Scopes</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#infrastructure">Infrastructure</a>
+        <a href="#compliance">Compliance</a>
+        <div class="docs-nav-divider"></div>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <div class="docs-content reveal">
+
+      <h1>QR Hub for Confluence<br><em>Trust Centre</em></h1>
+
+      <h2 id="overview">Overview</h2>
+      <p>QR Hub for Confluence is built to be the most privacy-respecting QR tool available on the Atlassian Marketplace. This page describes how the app handles data, what permissions it requests and why, and the infrastructure it runs on.</p>
+      <div class="docs-callout">
+        <p>&#128274; QR Hub for Confluence requests no write access of any kind. It cannot create, edit, or delete any content in your Confluence instance.</p>
+      </div>
+
+      <h2 id="data-handling">Data handling</h2>
+      <h3>What data does QR Hub access?</h3>
+      <p>QR Hub reads three pieces of metadata to populate the content action modal: the page title, space name, content type and version, and the author display name. This data is displayed to the user in the modal UI and is never transmitted outside Atlassian&rsquo;s infrastructure.</p>
+      <h3>What data does QR Hub store?</h3>
+      <p>None. QR Hub for Confluence has no persistent storage. No URLs, no page metadata, no user information, and no QR codes are stored anywhere &mdash; inside or outside Atlassian.</p>
+      <h3>Is QR code generation client-side?</h3>
+      <p>Yes. QR codes are generated entirely within the Atlassian Forge frontend runtime. The URL used to generate the QR code is never sent to any external server. No third-party QR generation API is used.</p>
+      <h3>Does QR Hub use analytics or tracking?</h3>
+      <p>No. QR Hub contains no analytics, no telemetry, no crash reporting, and no usage tracking of any kind.</p>
+
+      <h2 id="scopes">Permissions &amp; Scopes</h2>
+      <p>QR Hub for Confluence requests the minimum permissions required to display page metadata in the content action modal. All scopes are read-only.</p>
+
+      <table class="docs-table">
+        <thead>
+          <tr>
+            <th>Scope</th>
+            <th>Why it is needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>read:page:confluence</code></td>
+            <td>Fetch the page title, content type, and version for the content action modal metadata display.</td>
+          </tr>
+          <tr>
+            <td><code>read:space:confluence</code></td>
+            <td>Fetch the space name for the content action modal metadata display.</td>
+          </tr>
+          <tr>
+            <td><code>read:confluence-user</code></td>
+            <td>Fetch the author display name for the content action modal metadata display.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="docs-callout">
+        <p>&#9989; No write scopes are requested. QR Hub cannot create, edit, delete, or publish any content in Confluence. Ever.</p>
+      </div>
+
+      <h2 id="infrastructure">Infrastructure</h2>
+      <p>QR Hub for Confluence runs entirely on <strong>Atlassian Forge</strong>, Atlassian&rsquo;s native cloud app platform. This means:</p>
+      <ul>
+        <li>All app code executes within Atlassian&rsquo;s sandboxed runtime.</li>
+        <li>No external servers, no custom backend, no third-party cloud services.</li>
+        <li>Data never leaves Atlassian&rsquo;s infrastructure at any point.</li>
+        <li>App updates are distributed through the Atlassian Marketplace with no action required from administrators.</li>
+      </ul>
+
+      <h2 id="compliance">Compliance</h2>
+      <ul>
+        <li><strong>GDPR</strong> &mdash; No personal data is stored or transmitted. The author display name is read briefly to render the UI and is never persisted.</li>
+        <li><strong>SOC 2</strong> &mdash; Inherited from Atlassian Forge&rsquo;s infrastructure. Atlassian holds SOC 2 Type II certification.</li>
+        <li><strong>Atlassian Cloud Security</strong> &mdash; QR Hub is subject to Atlassian&rsquo;s Marketplace security review process.</li>
+      </ul>
+
+      <h2 id="contact">Contact</h2>
+      <p>Security concerns, questions about data handling, or trust inquiries can be sent directly to Agilva Solutions. <a href="#" onclick="openPopup();return false;">Contact us here</a> and we will respond within one business day.</p>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="../../assets/logo.png" alt="Agilva Solutions"/>
+      <p>A certified Atlassian Marketplace vendor. Building tools that help teams work smarter. Based in India — working globally.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Products</div>
+      <ul>
+        <li><a href="../../markso-editor/index.html">Markso Editor</a></li>
+        <li><a href="../../link-a-link/index.html">Link-a-Link</a></li>
+        <li><a href="../../qr-hub-jira/index.html">QR Hub for Jira</a></li>
+        <li><a href="../../qr-hub-confluence/index.html">QR Hub for Confluence</a></li>
+        <li><a href="../../discovery-hub-jira/index.html">Discovery Hub for Jira</a></li>
+        <li><a href="../../mathso/index.html">Mathso</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Company</div>
+      <ul>
+        <li><a href="../../index.html#about">About Us</a></li>
+        <li><a href="../../index.html#blog">Blog</a></li>
+        <li><a href="../../trust/index.html">Trust Centre</a></li>
+        <li><a href="#" onclick="openPopup();return false;">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Connect</div>
+      <ul>
+        <li><a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="YOUR_TWITTER_URL" target="_blank" rel="noopener">Twitter / X</a></li>
+        <li><a href="https://marketplace.atlassian.com" target="_blank" rel="noopener">Atlassian Marketplace</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 Agilva Solutions. All rights reserved.</span>
+    <div class="footer-socials">
+      <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
+      <a href="YOUR_TWITTER_URL">Twitter</a>
+      <a href="https://marketplace.atlassian.com">Marketplace</a>
+    </div>
+  </div>
+</footer>
+
+<div class="popup-overlay" id="contactPopup" onclick="closePopupOnOverlay(event)">
+  <div class="popup-card">
+    <button class="popup-close" onclick="closePopup()">&times;</button>
+    <div class="popup-success" id="popup-success"><em>Thank you.</em><br>We'll be in touch shortly.</div>
+    <div class="popup-tag">Get in touch</div>
+    <h2 class="popup-title">Let's<br><em>talk.</em></h2>
+    <p class="popup-desc">Tell us about your project or ask us anything. We reply within one business day.</p>
+    <form id="popup-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-row-2">
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">First name</label><input class="form-input" name="firstName" type="text" placeholder="John" required/></div>
+        <div class="form-row" style="margin-bottom:0"><label class="form-label">Last name</label><input class="form-input" name="lastName" type="text" placeholder="Smith" required/></div>
+      </div>
+      <div class="form-row"><label class="form-label">Work email</label><input class="form-input" name="email" type="email" placeholder="john@company.com" required/></div>
+      <div class="form-row"><label class="form-label">Company</label><input class="form-input" name="company" type="text" placeholder="Your company"/></div>
+      <div class="form-row">
+        <label class="form-label">Enquiry about</label>
+        <select class="form-select form-input" name="product">
+          <option value="" disabled selected>Select a product / topic</option>
+          <option>Markso Editor</option><option>Link-a-Link</option>
+          <option>QR Hub for Jira</option><option>QR Hub for Confluence</option>
+          <option>Discovery Hub for Jira</option><option>Mathso</option>
+          <option>General / Other</option>
+        </select>
+      </div>
+      <div class="form-row"><label class="form-label">Message</label><textarea class="form-textarea" name="message" placeholder="Tell us about your question..." required></textarea></div>
+      <input type="text" name="_gotcha" style="display:none"/>
+      <input type="hidden" name="_subject" value="New enquiry — QR Hub for Confluence"/>
+      <button type="submit" class="form-submit" id="popup-submit-btn">Send Message &rarr;</button>
+      <p class="form-note">We respect your privacy. Your information is never shared.</p>
+    </form>
+  </div>
+</div>
+<script src="../../assets/main.js"></script>
+</body>
+</html>
